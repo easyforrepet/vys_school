@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ВЫСЬ — бесплатные уроки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.03em;margin:0}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:auto;padding:0 32px}
+
+.header{height:92px;display:flex;align-items:center;justify-content:space-between}
+.logo{color:var(--wine);font-family:'Fraunces',serif;font-size:27px;font-weight:700;letter-spacing:-1px}
+.logo span{font-family:Manrope;font-size:14px;margin-left:5px}
+.back{font-size:11px;border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+.hero{padding:30px 0 60px}
+.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:9px;font-weight:800;color:var(--blue);display:flex;align-items:center;gap:9px}
+.eyebrow span{height:7px;width:7px;border-radius:50%;background:var(--blue)}
+h1{font-size:52px;line-height:.96;margin:18px 0 16px}
+h1 em{color:var(--wine);font-style:normal}
+.hero p{font-size:13px;line-height:1.7;max-width:480px;color:#5c574f}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:100px}
+.card{background:#fff;padding:24px;display:flex;flex-direction:column;border-top:3px solid var(--blue)}
+.card:nth-child(3n+2){border-top-color:var(--wine)}
+.card .tag{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#8a8378}
+.card h3{font-size:22px;margin:14px 0 10px;line-height:1.1}
+.card p{font-size:11px;line-height:1.6;color:#5c574f;flex:1}
+.card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-size:10px}
+.card .meta span{color:#8a8378}
+.card button{font:inherit;border:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:2px;font-size:10px;font-weight:800;cursor:pointer}
+.card button:hover{background:var(--blue)}
+
+footer{background:var(--ink);color:var(--cream);padding:40px 0;font-size:10px;text-align:center}
+
+@media(max-width:760px){
+  .container{padding:0 20px}
+  h1{font-size:38px}
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header container">
+  <a class="logo" href="index.html">ВЫСЬ<span>↗</span></a>
+  <a class="back" href="index.html">← На главную</a>
+</header>
+
+<section class="hero container">
+  <p class="eyebrow"><span></span> доступ открыт</p>
+  <h1>Бесплатные<br><em>предзаписанные</em> уроки</h1>
+  <p>Начните здесь — без оплаты и записи на занятие. Посмотрите, как мы объясняем, и выберите тему, с которой хочется разобраться в первую очередь.</p>
+</section>
+
+<section class="grid container">
+  <article class="card">
+    <span class="tag">ОГЭ · алгебра</span>
+    <h3>Как решать уравнения без страха ошибиться</h3>
+    <p>Разбираем базовый алгоритм на понятных примерах — от простого к сложному.</p>
+    <div class="meta"><span>14 мин</span><button>Смотреть ▷</button></div>
+  </article>
+  <article class="card">
+    <span class="tag">ОГЭ · геометрия</span>
+    <h3>Площади фигур: логика вместо зубрёжки</h3>
+    <p>Показываем, откуда берутся формулы, чтобы не пришлось их просто заучивать.</p>
+    <div class="meta"><span>18 мин</span><button>Смотреть ▷</button></div>
+  </article>
+  <article class="card">
+    <span class="tag">ОГЭ · текстовые задачи</span>
+    <h3>Задачи на движение за 5 шагов</h3>
+    <p>Универсальная схема разбора, которая подходит почти для любой текстовой задачи.</p>
+    <div class="meta"><span>12 мин</span><button>Смотреть ▷</button></div>
+  </article>
+  <article class="card">
+    <span class="tag">школьная математика</span>
+    <h3>Дроби: почему они пугают и как это исправить</h3>
+    <p>Закрываем пробелы в базе — с этой темы часто начинаются проблемы дальше.</p>
+    <div class="meta"><span>16 мин</span><button>Смотреть ▷</button></div>
+  </article>
+  <article class="card">
+    <span class="tag">ОГЭ · статистика</span>
+    <h3>Вероятность на пальцах</h3>
+    <p>Разбираем задачи из второй части экзамена простым языком.</p>
+    <div class="meta"><span>10 мин</span><button>Смотреть ▷</button></div>
+  </article>
+  <article class="card">
+    <span class="tag">для родителей</span>
+    <h3>Как помочь ребёнку готовиться к ОГЭ дома</h3>
+    <p>Короткий разбор для родителей: что реально помогает, а что только мешает.</p>
+    <div class="meta"><span>9 мин</span><button>Смотреть ▷</button></div>
+  </article>
+</section>
+
+<footer>© 2026 ВЫСЬ — школа, где можно расти выше.</footer>
+
+</body>
+</html>
