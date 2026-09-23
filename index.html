@@ -22,7 +22,7 @@
 footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{display:grid;grid-template-columns:1.4fr 1.4fr .8fr .8fr;padding-bottom:68px}.footer-wrap .logo{color:var(--cream)}.footer-wrap p{font-family:'Fraunces';font-size:20px;line-height:1.2}.footer-wrap div{display:flex;flex-direction:column;gap:12px}.copyright{border-top:1px solid #55504c;padding-top:15px;padding-bottom:20px;font-size:8px;color:#aaa39a}.copyright span{float:right}.copyright span:hover{color:var(--blue)}
 .modal{visibility:hidden;opacity:0;position:fixed;inset:0;z-index:100;background:rgba(45,45,45,.72);display:grid;place-items:center;transition:.2s}.modal.active{visibility:visible;opacity:1}.modal-box{background:var(--cream);padding:42px;max-width:430px;width:calc(100% - 32px);position:relative}.modal-box h2{font-size:38px;margin:17px 0 12px}.modal-box>p:not(.section-mark){font-size:14px;line-height:1.6}.close{position:absolute;right:16px;top:13px;background:none;font-size:28px}.modal form{display:flex;flex-direction:column;gap:10px;margin-top:25px}.modal input{border:0;border-bottom:1px solid #8d8881;background:transparent;padding:12px 0;outline:none}.modal small{display:block;margin-top:16px;color:var(--wine);font-weight:800}
 .modal-login .modal-box{border-top:4px solid var(--blue)}.modal-login .section-mark{color:var(--blue)}.modal-login input:focus{border-bottom-color:var(--blue)}.login-submit{background:var(--blue);color:#fff;border-color:var(--blue)}.login-submit:hover{background:var(--cream);color:var(--blue)}.switch-link{display:block;margin-top:20px;font-size:13px;color:var(--blue);border-bottom:1px solid var(--blue);padding-bottom:3px;text-decoration:none;width:fit-content}.switch-link-muted{margin-top:12px;color:#8a8378;border-bottom-color:#8a8378;font-size:10px}.modal-login small{color:var(--blue)}
-.modal-register .modal-box{border-top:4px solid var(--wine)}.modal-register .section-mark{color:var(--wine)}.modal-register input:focus{border-bottom-color:var(--wine)}.register-submit{background:var(--wine);color:#fff;border-color:var(--wine)}.register-submit:hover{background:var(--cream);color:var(--wine)}.modal-register small{color:var(--wine)}.role-select{display:flex;gap:8px;margin:18px 0 6px;flex-wrap:wrap}.role-opt{flex:1;min-width:90px;text-align:center;border:1px solid var(--line);border-radius:9px;padding:10px 8px;font-size:12px;font-weight:700;cursor:pointer;position:relative}.role-opt input{position:absolute;opacity:0}.role-opt:has(input:checked){border-color:var(--wine);background:#f3e2df;color:var(--wine)}.role-opt.role-soon{opacity:.55;cursor:not-allowed}.role-opt.role-soon b{display:block;font-size:9px;text-transform:uppercase;font-weight:800;color:var(--blue);margin-top:2px}
+.modal-register .modal-box{border-top:4px solid var(--wine)}.modal-register .section-mark{color:var(--wine)}.modal-register input:focus{border-bottom-color:var(--wine)}.register-submit{background:var(--wine);color:#fff;border-color:var(--wine)}.register-submit:hover{background:var(--cream);color:var(--wine)}.modal-register small{color:var(--wine)}.role-select{display:flex;gap:8px;margin:18px 0 6px;flex-wrap:wrap}.role-opt{flex:1;min-width:90px;text-align:center;border:1px solid var(--line);border-radius:9px;padding:10px 8px;font-size:12px;font-weight:700;cursor:pointer;position:relative}.role-opt input{position:absolute;opacity:0}.role-opt:has(input:checked){border-color:var(--wine);background:#f3e2df;color:var(--wine)}.role-opt b{display:block;font-size:9px;text-transform:uppercase;font-weight:800;color:var(--blue);margin-top:2px}.role-opt:has(input:checked) b{color:var(--wine)}
 .reveal{opacity:0;transform:translateY(110px) scale(.88);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.reveal.in-view{opacity:1;transform:none}
 .eyebrow-sub{font-size:14px;color:#8a8378;margin-top:10px;font-weight:500;letter-spacing:0}
 .audience{padding-top:110px;padding-bottom:110px}
@@ -573,7 +573,7 @@ footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{di
       <div class="role-select">
         <label class="role-opt"><input type="radio" name="role" value="student" checked><span>Ученик</span></label>
         <label class="role-opt"><input type="radio" name="role" value="parent"><span>Родитель</span></label>
-        <label class="role-opt role-soon"><input type="radio" name="role" value="teacher" disabled><span>Педагог <b>скоро</b></span></label>
+        <label class="role-opt"><input type="radio" name="role" value="teacher"><span>Педагог <b>превью</b></span></label>
       </div>
       <input required placeholder="Ваше имя">
       <input required type="email" placeholder="Email">
@@ -639,8 +639,14 @@ function closeRegisterModal(){
 }
 function sendRegister(event){
   event.preventDefault();
-  document.getElementById('register-message').textContent='Готово! Открываем бесплатные уроки…';
-  setTimeout(()=>{ window.location.href='free-lessons.html'; },500);
+  const role = event.target.querySelector('input[name="role"]:checked').value;
+  if(role === 'teacher'){
+    document.getElementById('register-message').textContent='Готово! Открываем кабинет преподавателя…';
+    setTimeout(()=>{ window.location.href='teacher-dashboard.html'; },500);
+  } else {
+    document.getElementById('register-message').textContent='Готово! Открываем бесплатные уроки…';
+    setTimeout(()=>{ window.location.href='free-lessons.html'; },500);
+  }
 }
 document.getElementById('register-modal').addEventListener('click',event=>{
   if(event.target.id==='register-modal') closeRegisterModal();
