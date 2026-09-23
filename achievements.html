@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+<script>(function(){try{var t=localStorage.getItem("vys-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ВЫСЬ — достижения</title>
@@ -8,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e}
+:root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eeece5}[data-theme="dark"]{--cream:#1a1817;--beige:#25211f;--ink:#ece6e0;--line:#3a3532;--panel:#242020;--divider:#332f2c}html[data-theme="dark"] body{background:var(--cream)}[data-density="minimal"]{--divider:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .lesson-card,[data-density="minimal"] .profile-head,[data-density="minimal"] .course-hero{box-shadow:none;border:none}[data-density="contrast"] .panel,[data-density="contrast"] .lesson-card,[data-density="contrast"] .profile-head,[data-density="contrast"] .course-hero,[data-density="contrast"] .stat-card,[data-density="contrast"] .ach-card{border:1.5px solid var(--wine)}[data-density="contrast"]{--line:#a89e8f}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -18,50 +19,50 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px}
 .shell{display:grid;grid-template-columns:236px 1fr;min-height:100vh}
-.side{background:#fff;border-right:1px solid var(--line);padding:26px 20px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
-.side-logo{color:var(--wine);font-size:22px;font-weight:700;display:block}
-.side-logo span{display:block;font-family:Manrope;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#8a8378;font-weight:700;margin-top:2px}
+.side{background:var(--panel);border-right:1px solid var(--line);padding:26px 20px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.side-logo{font-size:23px;font-weight:700;display:block}.side-logo .lw{color:var(--wine)}.side-logo .lb{color:var(--blue)}
+.side-logo .sub{display:block;font-family:Manrope;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#8a8378;font-weight:700;margin-top:2px}
 .side-nav{margin-top:34px;display:flex;flex-direction:column;gap:3px}
-.side-nav a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;font-size:13.5px;font-weight:600;color:#5c574f;transition:.15s}
+.side-nav a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;font-size:15px;font-weight:600;color:#5c574f;transition:.15s}
 .side-nav a svg{flex:0 0 auto;opacity:.85}
 .side-nav a:hover{background:var(--cream);color:var(--ink)}
 .side-nav a.active{background:#f3e2df;color:var(--wine)}
 .side-nav a.active svg{opacity:1}
-.side-nav .count{margin-left:auto;background:var(--wine);color:#fff;font-size:10px;font-weight:800;border-radius:20px;padding:2px 7px}
+.side-nav .count{margin-left:auto;background:var(--wine);color:#fff;font-size:12px;font-weight:800;border-radius:20px;padding:2px 7px}
 .side-sep{height:1px;background:var(--line);margin:16px 0}
 .side-foot{margin-top:auto}
 .side-note{background:linear-gradient(155deg,#2d2b29,#1a1918);border-radius:12px;padding:20px 16px;color:#efe6e2;position:relative;overflow:hidden;min-height:150px;display:flex;align-items:flex-end}
 .side-note svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
-.side-note p{position:relative;font-family:'Caveat',cursive;font-size:19px;line-height:1.25;font-weight:700}
-.side-note .tag{position:absolute;left:16px;bottom:14px;font-family:Manrope;font-size:8px;text-transform:uppercase;letter-spacing:.12em;color:#c7c2b8}
+.side-note p{position:relative;font-family:'Caveat',cursive;font-size:20px;line-height:1.25;font-weight:700}
+.side-note .tag{position:absolute;left:16px;bottom:14px;font-family:Manrope;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#c7c2b8}
 .main{padding:26px 34px 60px;max-width:1000px}
 .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.back{font-size:12.5px;font-weight:700;color:#5c574f;display:flex;align-items:center;gap:6px}
+.back{font-size:14px;font-weight:700;color:#5c574f;display:flex;align-items:center;gap:6px}
 .page-head{margin-bottom:26px}
 .page-head h1{font-size:32px}
-.page-head p{margin-top:8px;font-size:13.5px;color:#5c574f;max-width:520px}
+.page-head p{margin-top:8px;font-size:15px;color:#5c574f;max-width:520px}
 
 .ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.ach-card{background:#fff;border-radius:14px;padding:22px 16px;text-align:center;position:relative}
+.ach-card{background:var(--panel);border-radius:14px;padding:22px 16px;text-align:center;position:relative}
 .ach-card.locked{opacity:.45}
-.ach-ic{font-size:30px;margin-bottom:10px}
-.ach-card b{font-size:13px;display:block;margin-bottom:4px}
-.ach-card span{font-size:11px;color:#8a8378;display:block}
-.ach-date{font-size:10px;color:var(--wine);font-weight:700;margin-top:8px}
+.ach-ic{margin-bottom:10px;display:flex;justify-content:center;opacity:.9}
+.ach-card b{font-size:15px;display:block;margin-bottom:4px}
+.ach-card span{font-size:13px;color:#8a8378;display:block}
+.ach-date{font-size:12px;color:var(--wine);font-weight:700;margin-top:8px}
 .ach-progress{margin-top:10px}
 .ach-bar{height:5px;background:var(--cream);border-radius:20px;overflow:hidden}
 .ach-bar i{display:block;height:100%;background:var(--wine)}
-.ach-progress span{font-size:10px;color:#8a8378;margin-top:5px;display:block}
+.ach-progress span{font-size:12px;color:#8a8378;margin-top:5px;display:block}
 
 .note-panel{background:#f3e2df;border-radius:14px;padding:20px 24px;margin-top:22px;display:flex;align-items:center;gap:14px}
-.note-panel p{font-size:13px;color:var(--wine);line-height:1.5}
+.note-panel p{font-size:15px;color:var(--wine);line-height:1.5}
 
 @media(max-width:1180px){.shell{grid-template-columns:1fr}.side{display:none}.main{max-width:none;padding-bottom:90px}}
 @media(max-width:900px){.ach-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:640px){.main{padding:18px 16px 90px}.ach-grid{grid-template-columns:1fr 1fr}}
 .mobile-nav{display:none}
-@media(max-width:1180px){.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);justify-content:space-around;padding:8px 0 max(8px,env(safe-area-inset-bottom));z-index:30}
-.mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9.5px;color:#8a8378;font-weight:700}
+@media(max-width:1180px){.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--panel);border-top:1px solid var(--line);justify-content:space-around;padding:8px 0 max(8px,env(safe-area-inset-bottom));z-index:30}
+.mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;color:#8a8378;font-weight:700}
 .mobile-nav a.active{color:var(--wine)}}
 .reveal-el{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}.reveal-el.in-view{opacity:1;transform:none}
 </style>
@@ -70,7 +71,7 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 
 <div class="shell">
   <aside class="side">
-    <a class="side-logo" href="dashboard.html">ВЫСЬ<span>онлайн-школа</span></a>
+    <a class="side-logo" href="dashboard.html"><span class="lw">ВЫ</span><span class="lb">СЬ</span><span class="sub">онлайн-школа</span></a>
     <nav class="side-nav">
       <a href="dashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>Главная</a>
       <a href="schedule.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Расписание</a>
@@ -104,16 +105,16 @@ button{font:inherit;cursor:pointer;border:0;background:none}
     </div>
 
     <div class="ach-grid">
-      <div class="ach-card"><div class="ach-ic">🏔</div><b>Первый шаг</b><span>Первое занятие пройдено</span><div class="ach-date">3 сентября</div></div>
-      <div class="ach-card"><div class="ach-ic">🎯</div><b>10 заданий подряд</b><span>Без единого пропуска</span><div class="ach-date">9 сентября</div></div>
-      <div class="ach-card"><div class="ach-ic">🔥</div><b>7 дней без пропусков</b><span>Занимался каждый день</span><div class="ach-date">16 сентября</div></div>
-      <div class="ach-card"><div class="ach-ic">📚</div><b>5 домашних работ</b><span>Выполнено вовремя</span><div class="ach-date">14 сентября</div></div>
-      <div class="ach-card"><div class="ach-ic">⭐</div><b>Новый личный рекорд</b><span>16 баллов на пробнике</span><div class="ach-date">18 сентября</div></div>
-      <div class="ach-card"><div class="ach-ic">🧩</div><b>Тема закрыта</b><span>Квадратные уравнения — освоено</span><div class="ach-date">11 сентября</div></div>
-      <div class="ach-card locked"><div class="ach-ic">🌙</div><b>14 дней подряд</b><span>Ещё 7 дней до цели</span>
+      <div class="ach-card"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20L9 8l4 6 3-5 6 11z"/></svg></div><b>Первый шаг</b><span>Первое занятие пройдено</span><div class="ach-date">3 сентября</div></div>
+      <div class="ach-card"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".8" fill="var(--wine)" stroke="none"/></svg></div><b>10 заданий подряд</b><span>Без единого пропуска</span><div class="ach-date">9 сентября</div></div>
+      <div class="ach-card"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 0c1.5 2 1 6-1.5 8a6 6 0 0 1-9-5c0-3 2-4 3-6 0 1 .5 2 1.5 2 .5-2-.5-3.5 1-5Z"/></svg></div><b>7 дней без пропусков</b><span>Занимался каждый день</span><div class="ach-date">16 сентября</div></div>
+      <div class="ach-card"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5M9 12h6M9 16h6"/></svg></div><b>5 домашних работ</b><span>Выполнено вовремя</span><div class="ach-date">14 сентября</div></div>
+      <div class="ach-card"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg></div><b>Новый личный рекорд</b><span>16 баллов на пробнике</span><div class="ach-date">18 сентября</div></div>
+      <div class="ach-card"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h4v2a2 2 0 1 0 4 0V4h1a2 2 0 0 1 2 2v1h-2a2 2 0 1 0 0 4h2v1a2 2 0 0 1-2 2h-1a2 2 0 1 0-4 0v1H9v-2a2 2 0 1 0-4 0v2H4a2 2 0 0 1-2-2v-1h2a2 2 0 1 0 0-4H2V6a2 2 0 0 1 2-2h1v2a2 2 0 1 0 4 0z"/></svg></div><b>Тема закрыта</b><span>Квадратные уравнения — освоено</span><div class="ach-date">11 сентября</div></div>
+      <div class="ach-card locked"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></div><b>14 дней подряд</b><span>Ещё 7 дней до цели</span>
         <div class="ach-progress"><div class="ach-bar"><i style="width:50%"></i></div><span>7 из 14</span></div>
       </div>
-      <div class="ach-card locked"><div class="ach-ic">🚀</div><b>20 заданий подряд</b><span>Ещё 10 заданий до цели</span>
+      <div class="ach-card locked"><div class="ach-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--wine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 2 5 6 5 10 0 2-1 4-2 5l-3 3-3-3c-1-1-2-3-2-5 0-4 2-8 5-10Z"/><path d="M9 15l-3 2 1-3.5M15 15l3 2-1-3.5"/><circle cx="12" cy="10" r="1.6"/></svg></div><b>20 заданий подряд</b><span>Ещё 10 заданий до цели</span>
         <div class="ach-progress"><div class="ach-bar"><i style="width:50%"></i></div><span>10 из 20</span></div>
       </div>
     </div>

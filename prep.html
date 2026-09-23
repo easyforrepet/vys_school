@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ВЫСЬ — подготовка к занятию</title>
+<script>(function(){try{var t=localStorage.getItem("vys-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eeece5}
+[data-theme="dark"]{--cream:#1a1817;--beige:#25211f;--ink:#ece6e0;--line:#3a3532;--panel:#242020;--divider:#332f2c}
+html[data-theme="dark"] body{background:var(--cream)}[data-density="minimal"]{--divider:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .lesson-card,[data-density="minimal"] .profile-head,[data-density="minimal"] .course-hero{box-shadow:none;border:none}[data-density="contrast"] .panel,[data-density="contrast"] .lesson-card,[data-density="contrast"] .profile-head,[data-density="contrast"] .course-hero,[data-density="contrast"] .stat-card,[data-density="contrast"] .ach-card{border:1.5px solid var(--wine)}[data-density="contrast"]{--line:#a89e8f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none}
+.wrap{max-width:720px;margin:auto;padding:40px 28px 90px}
+.back{font-size:15px;font-weight:700;color:#5c574f;display:flex;align-items:center;gap:6px;margin-bottom:26px}
+.head{margin-bottom:28px}
+.head p.eyebrow{text-transform:uppercase;letter-spacing:.1em;font-size:14px;font-weight:800;color:var(--wine);margin:0 0 10px}
+.head h1{font-size:32px}
+.head p.sub{margin-top:10px;font-size:16px;color:#5c574f}
+.lesson-info{background:var(--panel);border-radius:14px;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.lesson-info b{font-size:18px;display:block}
+.lesson-info span{font-size:15px;color:#8a8378}
+.progress-pill{background:#f3e2df;color:var(--wine);font-size:15px;font-weight:700;padding:8px 16px;border-radius:20px}
+
+.prep-panel{background:var(--panel);border-radius:14px;padding:8px}
+.prep-item{display:flex;align-items:flex-start;gap:14px;padding:18px 16px;border-top:1px solid var(--divider);cursor:pointer}
+.prep-item:first-child{border-top:0}
+.prep-check{width:24px;height:24px;border-radius:7px;border:2px solid var(--line);flex:0 0 auto;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:.15s}
+.prep-check svg{opacity:0;transition:.15s}
+.prep-item.checked .prep-check{background:var(--wine);border-color:var(--wine)}
+.prep-item.checked .prep-check svg{opacity:1}
+.prep-body b{font-size:16px;display:block;transition:.15s}
+.prep-item.checked .prep-body b{color:#8a8378;text-decoration:line-through}
+.prep-body span{font-size:15px;color:#8a8378;display:block;margin-top:3px;line-height:1.5}
+.prep-item input{display:none}
+
+.done-note{margin-top:22px;background:#e5ece5;color:var(--green);padding:18px 20px;border-radius:12px;font-size:16px;font-weight:700;text-align:center;display:none}
+.done-note.show{display:block}
+.note-caveat{font-family:'Caveat',cursive;font-size:23px;font-weight:700;color:var(--wine);margin-top:22px;text-align:center}
+
+@media(max-width:640px){.wrap{padding:24px 18px 70px}.head h1{font-size:27px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="dashboard.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>На главную</a>
+
+  <div class="head">
+    <p class="eyebrow">Подготовка к занятию</p>
+    <h1>Что сделать перед уроком</h1>
+    <p class="sub">Отметь, что уже успел(а) — остальное останется в списке до самого занятия.</p>
+  </div>
+
+  <div class="lesson-info">
+    <div>
+      <b>Математика · квадратные неравенства</b>
+      <span>Сегодня, 18:00–19:00 · онлайн · Кристина Крылова</span>
+    </div>
+    <span class="progress-pill" id="progress-pill">0 из 4</span>
+  </div>
+
+  <div class="prep-panel" id="prep-list">
+    <label class="prep-item" data-id="p1">
+      <input type="checkbox">
+      <span class="prep-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4 10-10"/></svg></span>
+      <span class="prep-body"><b>Повторить формулу</b><span>Метод интервалов — как расставлять знаки на числовой прямой.</span></span>
+    </label>
+    <label class="prep-item" data-id="p2">
+      <input type="checkbox">
+      <span class="prep-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4 10-10"/></svg></span>
+      <span class="prep-body"><b>Посмотреть материал</b><span>Конспект прошлого занятия — «Квадратные уравнения».</span></span>
+    </label>
+    <label class="prep-item" data-id="p3">
+      <input type="checkbox">
+      <span class="prep-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4 10-10"/></svg></span>
+      <span class="prep-body"><b>Подготовить вопросы</b><span>Что осталось непонятным — запиши, чтобы не забыть спросить.</span></span>
+    </label>
+    <label class="prep-item" data-id="p4">
+      <input type="checkbox">
+      <span class="prep-check"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M5 13l4 4 10-10"/></svg></span>
+      <span class="prep-body"><b>Проверить связь и камеру</b><span>Открыть площадку заранее, за 5 минут до начала.</span></span>
+    </label>
+  </div>
+
+  <div class="done-note" id="done-note">Всё готово — можно спокойно заходить на занятие 🎉</div>
+  <p class="note-caveat">Ты уже на шаг ближе к своей цели.</p>
+</div>
+
+<script>
+const items = document.querySelectorAll('.prep-item');
+const total = items.length;
+
+function updateProgress(){
+  const checked = document.querySelectorAll('.prep-item.checked').length;
+  document.getElementById('progress-pill').textContent = checked + ' из ' + total;
+  document.getElementById('done-note').classList.toggle('show', checked === total);
+}
+
+items.forEach(item => {
+  const id = item.dataset.id;
+  const checkbox = item.querySelector('input');
+  const saved = localStorage.getItem('vys-prep-' + id) === '1';
+  if(saved){ item.classList.add('checked'); checkbox.checked = true; }
+
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isChecked = item.classList.toggle('checked');
+    checkbox.checked = isChecked;
+    try{ localStorage.setItem('vys-prep-' + id, isChecked ? '1' : '0'); }catch(err){}
+    updateProgress();
+  });
+});
+updateProgress();
+</script>
+
+</body>
+</html>
