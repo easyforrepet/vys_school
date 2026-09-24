@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+
 <title>ВЫСЬ — настройки преподавателя</title>
 <script>(function(){try{var t=localStorage.getItem("vys-teacher-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +14,7 @@
 :root{--cream:#eef2f5;--beige:#d8e2e8;--wine:#460203;--ink:#242b30;--gold:#b98c4f;--line:#c3d0d8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eef2f5}
 [data-theme="dark"]{--cream:#161c20;--beige:#212a30;--ink:#e7edf1;--line:#313d45;--panel:#1f272c;--divider:#2a343a}
 html[data-theme="dark"] body{background:var(--cream)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -30,11 +33,11 @@ input[type=text]{font:inherit}
 .side-nav{margin-top:34px;display:flex;flex-direction:column;gap:3px}
 .side-nav a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;font-size:16px;font-weight:600;color:#5c6b74;transition:.15s}
 .side-nav a svg{flex:0 0 auto;opacity:.85}
-.side-nav a:hover{background:var(--cream);color:var(--ink)}
+.side-nav a:hover{background:var(--blue);color:#fff}
 .side-nav a.active{background:#dde8ee;color:var(--blue)}
 .side-nav a.active svg{opacity:1}
 .side-nav a.logout-link{color:#9a5a52}
-.side-nav a.logout-link:hover{background:#f2e2e0;color:#9a5a52}
+.side-nav a.logout-link:hover{background:#9a5a52;color:#fff}
 .side-sep{height:1px;background:var(--line);margin:16px 0}
 
 .main{padding:26px 34px 90px;max-width:840px}
@@ -89,11 +92,21 @@ input[type=text]{font:inherit}
 
 @media(max-width:1180px){.shell{grid-template-columns:1fr}.side{display:none}.main{max-width:none}}
 @media(max-width:640px){.main{padding:20px 18px 90px}.appear-grid{grid-template-columns:1fr}.logout-fab{bottom:20px}}
-[data-density="minimal"]{--divider:transparent;--line:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .stat-card,[data-density="minimal"] .student-row,[data-density="minimal"] .lesson-row,[data-density="minimal"] .upload-zone,[data-density="minimal"] .side-note{background:transparent!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:4px!important}[data-density="minimal"] .side-note{display:none}[data-density="contrast"]{--line:#8a97a0}[data-density="contrast"] .panel,[data-density="contrast"] .stat-card,[data-density="contrast"] .student-row,[data-density="contrast"] .lesson-row,[data-density="contrast"] .upload-zone,[data-density="contrast"] .side-note{border-left:5px solid var(--blue)!important;border-radius:4px!important}[data-density="contrast"] h1,[data-density="contrast"] h2,[data-density="contrast"] h3,[data-density="contrast"] .side-logo{color:var(--blue)!important}[data-density="contrast"] b,[data-density="contrast"] .side-nav a{font-weight:800!important}</style>
+[data-density="minimal"]{--divider:transparent;--line:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .stat-card,[data-density="minimal"] .student-row,[data-density="minimal"] .lesson-row,[data-density="minimal"] .upload-zone,[data-density="minimal"] .side-note{background:transparent!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:4px!important}[data-density="minimal"] .side-note{display:none}[data-density="contrast"]{--line:#8a97a0}[data-density="contrast"] .panel,[data-density="contrast"] .stat-card,[data-density="contrast"] .student-row,[data-density="contrast"] .lesson-row,[data-density="contrast"] .upload-zone,[data-density="contrast"] .side-note{border-left:5px solid var(--blue)!important;border-radius:4px!important}[data-density="contrast"] h1,[data-density="contrast"] h2,[data-density="contrast"] h3,[data-density="contrast"] .side-logo{color:var(--blue)!important}[data-density="contrast"] b,[data-density="contrast"] .side-nav a{font-weight:800!important}.mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(20,18,17,.45);z-index:90}
+.mobile-menu-overlay.open{display:block}
+.mobile-menu-sheet{position:fixed;left:0;right:0;bottom:0;background:var(--panel);border-radius:18px 18px 0 0;padding:10px 14px calc(20px + env(safe-area-inset-bottom));max-height:75vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:91}
+.mobile-menu-overlay.open .mobile-menu-sheet{transform:translateY(0)}
+.mobile-menu-handle{width:40px;height:4px;background:var(--line);border-radius:4px;margin:10px auto 14px}
+.mobile-menu-sheet .side-nav{margin-top:0}
+.mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
+.menu-fab{display:none;position:fixed;top:16px;left:16px;z-index:80;width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--line);align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(36,43,48,.14)}
+@media(max-width:1180px){.menu-fab{display:flex}}
+</style>
 </head>
 <body>
 
 <a class="logout-fab" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Выход</a>
+<button class="menu-fab" onclick="toggleMobileMenu()" aria-label="Меню"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 
 <div class="shell">
   <aside class="side">
@@ -248,5 +261,21 @@ function toggleSwitch(el){ el.classList.toggle('on'); }
 })();
 </script>
 
+<script>
+function toggleMobileMenu(){
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if(!overlay){
+    overlay = document.createElement('div');
+    overlay.id = 'mobile-menu-overlay';
+    overlay.className = 'mobile-menu-overlay';
+    var sourceNav = document.querySelector('.side .side-nav');
+    var navClone = sourceNav ? sourceNav.outerHTML : '';
+    overlay.innerHTML = '<div class="mobile-menu-sheet"><div class="mobile-menu-handle"></div>' + navClone + '</div>';
+    overlay.addEventListener('click', function(e){ if(e.target === overlay) toggleMobileMenu(); });
+    document.body.appendChild(overlay);
+  }
+  overlay.classList.toggle('open');
+}
+</script>
 </body>
 </html>

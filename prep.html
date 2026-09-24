@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+
 <title>ВЫСЬ — подготовка к занятию</title>
 <script>(function(){try{var t=localStorage.getItem("vys-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +14,7 @@
 :root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eeece5}
 [data-theme="dark"]{--cream:#1a1817;--beige:#25211f;--ink:#ece6e0;--line:#3a3532;--panel:#242020;--divider:#332f2c}
 html[data-theme="dark"] body{background:var(--cream)}[data-density="minimal"]{--divider:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .lesson-card,[data-density="minimal"] .profile-head,[data-density="minimal"] .course-hero{box-shadow:none;border:none}[data-density="contrast"] .panel,[data-density="contrast"] .lesson-card,[data-density="contrast"] .profile-head,[data-density="contrast"] .course-hero,[data-density="contrast"] .stat-card,[data-density="contrast"] .ach-card{border:1.5px solid var(--wine)}[data-density="contrast"]{--line:#a89e8f}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -46,9 +49,13 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .note-caveat{font-family:'Caveat',cursive;font-size:23px;font-weight:700;color:var(--wine);margin-top:22px;text-align:center}
 
 @media(max-width:640px){.wrap{padding:24px 18px 70px}.head h1{font-size:27px}}
+.logout-fab{position:fixed;bottom:20px;right:20px;z-index:80;display:flex;align-items:center;gap:8px;background:var(--panel);color:#9a5a52;border:1px solid var(--line);padding:12px 18px;border-radius:30px;font-size:14px;font-weight:700;box-shadow:0 10px 26px rgba(45,43,41,.14);transition:.15s}
+.logout-fab:hover{border-color:#9a5a52;background:#f2e2e0}
+@media(max-width:1180px){.logout-fab{bottom:20px;padding:11px 16px;font-size:13px}}
 </style>
 </head>
 <body>
+<a class="logout-fab" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Выход</a>
 
 <div class="wrap">
   <a class="back" href="dashboard.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>На главную</a>

@@ -4,12 +4,15 @@
 <script>(function(){try{var t=localStorage.getItem("vys-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+
 <title>ВЫСЬ — записи</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eeece5}[data-theme="dark"]{--cream:#1a1817;--beige:#25211f;--ink:#ece6e0;--line:#3a3532;--panel:#242020;--divider:#332f2c}html[data-theme="dark"] body{background:var(--cream)}[data-density="minimal"]{--divider:transparent;--line:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .lesson-card,[data-density="minimal"] .profile-head,[data-density="minimal"] .course-hero,[data-density="minimal"] .stat-card,[data-density="minimal"] .ach-card,[data-density="minimal"] .hw-card,[data-density="minimal"] .rec-card,[data-density="minimal"] .mat-card,[data-density="minimal"] .course-list-card,[data-density="minimal"] .lesson-row,[data-density="minimal"] .task,[data-density="minimal"] .topic-card,[data-density="minimal"] .growth-item,[data-density="minimal"] .student-row,[data-density="minimal"] .doc-card,[data-density="minimal"] .week-day,[data-density="minimal"] .lesson-info,[data-density="minimal"] .prep-panel{background:transparent!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:4px!important}[data-density="minimal"] .side-note{display:none}[data-density="contrast"]{--line:#8a8378}[data-density="contrast"] .panel,[data-density="contrast"] .lesson-card,[data-density="contrast"] .profile-head,[data-density="contrast"] .course-hero,[data-density="contrast"] .stat-card,[data-density="contrast"] .ach-card,[data-density="contrast"] .hw-card,[data-density="contrast"] .rec-card,[data-density="contrast"] .mat-card,[data-density="contrast"] .course-list-card,[data-density="contrast"] .lesson-row,[data-density="contrast"] .task,[data-density="contrast"] .topic-card,[data-density="contrast"] .growth-item,[data-density="contrast"] .student-row,[data-density="contrast"] .doc-card,[data-density="contrast"] .week-day,[data-density="contrast"] .lesson-info,[data-density="contrast"] .prep-panel{border-left:5px solid var(--wine)!important;border-radius:4px!important}[data-density="contrast"] h1,[data-density="contrast"] h2,[data-density="contrast"] h3,[data-density="contrast"] .side-logo{color:var(--wine)!important}[data-density="contrast"] b,[data-density="contrast"] .side-nav a{font-weight:800!important}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -26,11 +29,11 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .side-nav{margin-top:34px;display:flex;flex-direction:column;gap:3px}
 .side-nav a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;font-size:15px;font-weight:600;color:#5c574f;transition:.15s}
 .side-nav a svg{flex:0 0 auto;opacity:.85}
-.side-nav a:hover{background:var(--cream);color:var(--ink)}
+.side-nav a:hover{background:var(--wine);color:#fff}
 .side-nav a.active{background:#f3e2df;color:var(--wine)}
 .side-nav a.active svg{opacity:1}
 .side-nav .count{margin-left:auto;background:var(--wine);color:#fff;font-size:12px;font-weight:800;border-radius:20px;padding:2px 7px}
-.side-sep{height:1px;background:var(--line);margin:16px 0}.side-nav a.logout-link{color:#9a5a52}.side-nav a.logout-link:hover{background:#f2e2e0;color:#9a5a52}
+.side-sep{height:1px;background:var(--line);margin:16px 0}.side-nav a.logout-link{color:#9a5a52}.side-nav a.logout-link:hover{background:#9a5a52;color:#fff}
 .side-foot{margin-top:auto}
 .side-note{background:linear-gradient(155deg,#2d2b29,#1a1918);border-radius:12px;padding:20px 16px;color:#efe6e2;position:relative;overflow:hidden;min-height:150px;display:flex;align-items:flex-end}
 .side-note svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
@@ -96,9 +99,20 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .notif-time{font-size:12px;color:#8a8378;margin-top:4px;display:block}
 .notif-empty{padding:34px 12px;text-align:center;font-size:14px;color:#8a8378}
 .icon-btn .dot{position:absolute;top:6px;right:6px;background:var(--wine);color:#fff;font-size:12px;font-weight:800;border-radius:50%;width:15px;height:15px;display:flex;align-items:center;justify-content:center}
+.logout-fab{position:fixed;bottom:20px;right:20px;z-index:80;display:flex;align-items:center;gap:8px;background:var(--panel);color:#9a5a52;border:1px solid var(--line);padding:12px 18px;border-radius:30px;font-size:14px;font-weight:700;box-shadow:0 10px 26px rgba(45,43,41,.14);transition:.15s}
+.logout-fab:hover{border-color:#9a5a52;background:#f2e2e0}
+@media(max-width:1180px){.logout-fab{bottom:20px;padding:11px 16px;font-size:13px}}
+.mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(20,18,17,.45);z-index:90}
+.mobile-menu-overlay.open{display:block}
+.mobile-menu-sheet{position:fixed;left:0;right:0;bottom:0;background:var(--panel);border-radius:18px 18px 0 0;padding:10px 14px calc(20px + env(safe-area-inset-bottom));max-height:75vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:91}
+.mobile-menu-overlay.open .mobile-menu-sheet{transform:translateY(0)}
+.mobile-menu-handle{width:40px;height:4px;background:var(--line);border-radius:4px;margin:10px auto 14px}
+.mobile-menu-sheet .side-nav{margin-top:0}
+.mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
 </style>
 </head>
 <body>
+<a class="logout-fab" href="index.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Выход</a>
 
 <div class="shell">
   <aside class="side">
@@ -167,7 +181,7 @@ button{font:inherit;cursor:pointer;border:0;background:none}
   <a href="schedule.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Расписание</a>
   <a href="homework.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M9 12h6M9 16h6"/></svg>Задания</a>
   <a href="progress.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V10M11 19V5M18 19v-7"/></svg>Прогресс</a>
-  <a class="active" href="recordings.html"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>Ещё</a>
+  <a class="active" href="#" onclick="event.preventDefault();toggleMobileMenu()"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>Ещё</a>
 </nav>
 
 <script>
@@ -289,6 +303,22 @@ document.addEventListener('click', function(e){
   }
 });
 renderNotif();
+</script>
+<script>
+function toggleMobileMenu(){
+  var overlay = document.getElementById('mobile-menu-overlay');
+  if(!overlay){
+    overlay = document.createElement('div');
+    overlay.id = 'mobile-menu-overlay';
+    overlay.className = 'mobile-menu-overlay';
+    var sourceNav = document.querySelector('.side .side-nav');
+    var navClone = sourceNav ? sourceNav.outerHTML : '';
+    overlay.innerHTML = '<div class="mobile-menu-sheet"><div class="mobile-menu-handle"></div>' + navClone + '</div>';
+    overlay.addEventListener('click', function(e){ if(e.target === overlay) toggleMobileMenu(); });
+    document.body.appendChild(overlay);
+  }
+  overlay.classList.toggle('open');
+}
 </script>
 </body>
 </html>
