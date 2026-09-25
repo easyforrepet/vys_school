@@ -51,6 +51,10 @@ input[type=text]{font:inherit}
 .panel .hint{font-size:13.5px;color:#7c8a93;margin-bottom:20px}
 
 .avatar-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.profile-cover{position:relative;height:170px;border-radius:12px;overflow:hidden;margin-bottom:20px}
+.profile-cover svg,.profile-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover-edit-btn{position:absolute;top:14px;right:14px;background:rgba(20,30,38,.55);color:#fff;font-size:12px;font-weight:700;padding:9px 14px;border-radius:20px;cursor:pointer}
+.cover-edit-btn:hover{background:rgba(20,30,38,.75)}
 .avatar-preview{width:76px;height:76px;border-radius:50%;background:var(--beige);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-size:28px;font-weight:700;color:var(--blue);flex:0 0 auto;position:relative;overflow:hidden;cursor:pointer}
 .avatar-preview img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .avatar-edit-badge{position:absolute;bottom:-2px;right:-2px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;border:2px solid var(--cream)}
@@ -131,9 +135,21 @@ input[type=text]{font:inherit}
       <p>Те же возможности, что и у учеников — фото, имя, тема оформления и уведомления.</p>
     </div>
 
-    <div class="panel">
-      <h3>Фото и имя</h3>
-      <p class="hint">Меняется сразу и сохраняется в этом браузере.</p>
+    <div class="panel" id="profile">
+      <h3>Профиль</h3>
+      <p class="hint">Фото, обложка и основная информация — видны в кабинете и на карточке преподавателя.</p>
+      <div class="profile-cover" id="cover-wrap">
+        <svg id="cover-default" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><linearGradient id="coverSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dfe7ec"/><stop offset="100%" stop-color="#b9c9d3"/></linearGradient>
+          <linearGradient id="coverFog" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--blue)" stop-opacity="0"/><stop offset="100%" stop-color="var(--blue)" stop-opacity=".65"/></linearGradient></defs>
+          <rect width="800" height="200" fill="url(#coverSky)"/>
+          <polygon points="0,200 0,110 90,55 170,125 260,40 340,120 430,65 520,135 610,80 700,135 800,100 800,200" fill="#1a2530" opacity=".55"/>
+          <rect y="105" width="800" height="95" fill="url(#coverFog)"/>
+        </svg>
+        <img id="cover-img" alt="" style="display:none">
+        <label class="cover-edit-btn" for="cover-upload">📷 Изменить обложку</label>
+        <input type="file" id="cover-upload" accept="image/*" style="display:none" onchange="handleCoverUpload(event)">
+      </div>
       <div class="avatar-row">
         <label class="avatar-preview" id="avatar-label" for="avatar-upload" title="Нажми, чтобы загрузить фото">
           <span id="avatar-fallback">КВ</span>
@@ -146,7 +162,16 @@ input[type=text]{font:inherit}
           <input type="text" id="teacher-name-input" value="Кристина Крылова" maxlength="30">
         </div>
       </div>
-      <button class="btn-blue" style="margin-top:18px" onclick="saveTeacherName()">Сохранить</button>
+      <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+        <div class="field"><label>Предмет</label><input type="text" value="Математика · ОГЭ"></div>
+        <div class="field"><label>Классы</label><input type="text" value="8–9 класс"></div>
+      </div>
+      <div class="field"><label>О себе</label><textarea rows="3">Готовлю к ОГЭ без спешки и лишней сложности: сначала закрываем пробелы в базе, затем выстраиваем системную практику.</textarea></div>
+      <div class="field-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="field"><label>Email</label><input type="email" value="kristina@vys.school"></div>
+        <div class="field"><label>Telegram</label><input type="text" value="@kristina_vys"></div>
+      </div>
+      <button class="btn-blue" onclick="saveTeacherName()">Сохранить</button>
       <span class="saved-note" id="name-saved-note">Сохранено</span>
     </div>
 
@@ -194,6 +219,21 @@ input[type=text]{font:inherit}
 </div>
 
 <script>
+function handleCoverUpload(event){
+  var file = event.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    try{ localStorage.setItem('vys-teacher-cover', e.target.result); }catch(err){}
+    applyTeacherCover(e.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+function applyTeacherCover(dataUrl){
+  document.getElementById('cover-img').src = dataUrl;
+  document.getElementById('cover-img').style.display = 'block';
+  document.getElementById('cover-default').style.display = 'none';
+}
 function handleAvatarUpload(event){
   var file = event.target.files[0];
   if(!file) return;
@@ -246,6 +286,8 @@ function toggleSwitch(el){ el.classList.toggle('on'); }
   try{
     var savedAvatar = localStorage.getItem('vys-teacher-avatar');
     if(savedAvatar) applyAvatar(savedAvatar);
+    var savedCover = localStorage.getItem('vys-teacher-cover');
+    if(savedCover) applyTeacherCover(savedCover);
     var savedName = localStorage.getItem('vys-teacher-name');
     if(savedName) document.getElementById('teacher-name-input').value = savedName;
     var savedDensity = localStorage.getItem('vys-teacher-density') || 'calm';

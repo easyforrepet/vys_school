@@ -64,6 +64,48 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .panel-head h3{font-size:19px}
 .panel-head a{font-size:15px;font-weight:700;color:var(--blue)}
 
+.quick-actions{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.qa-btn{background:var(--panel);border:1px solid var(--line);color:var(--blue);font-size:14px;font-weight:700;padding:11px 18px;border-radius:9px;transition:.15s}
+.qa-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+.today-lesson{display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid var(--divider)}
+.today-lesson:first-of-type{border-top:0}
+.tl-time{font-family:'Fraunces';font-size:19px;color:var(--blue);width:60px;flex:0 0 auto;display:flex;flex-direction:column;gap:4px}
+.tl-live{font-family:Manrope;font-size:10px;text-transform:uppercase;font-weight:800;color:#fff;background:var(--wine);padding:2px 7px;border-radius:10px;width:fit-content}
+.tl-body{flex:1;min-width:0}
+.tl-body b{font-size:16px;display:block}
+.tl-body span{font-size:14px;color:#7c8a93}
+.tl-btn{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--blue);border:1px solid var(--line);padding:9px 15px;border-radius:8px;transition:.15s}
+.tl-btn:hover{border-color:var(--blue)}
+.tl-btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tl-btn.primary:hover{background:#456b89}
+.today-lesson.live{background:#eaf0f4;margin:0 -10px;padding:14px 10px;border-radius:10px;border-top:0}
+
+.attn-item{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--divider)}
+.attn-item:first-of-type{border-top:0}
+.attn-item b{font-size:15.5px;font-weight:600}
+.attn-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.attn-dot.red{background:var(--wine)}
+.attn-dot.yellow{background:var(--gold)}
+.attn-dot.blue{background:var(--blue)}
+.attn-dot.green{background:var(--green)}
+.attn-item .tl-btn{margin-left:auto}
+.attn-empty{padding:20px 0;text-align:center;color:#7c8a93;font-size:15px}
+
+.next-lesson-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nl-time{font-family:'Fraunces';font-size:32px;color:var(--blue);flex:0 0 auto}
+.nl-body{flex:1;min-width:180px}
+.nl-body b{font-size:18px;display:block;margin-bottom:4px}
+.nl-body span{font-size:14px;color:#7c8a93;display:block}
+.nl-topic{color:var(--ink)!important;font-weight:600;margin-top:4px}
+.nl-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+.watch-student{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--divider)}
+.watch-student:first-of-type{border-top:0}
+.ws-body{flex:1;min-width:0}
+.ws-body b{font-size:16px;display:block}
+.ws-body span{font-size:14px;color:#7c8a93}
+
 .student-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--divider)}
 .student-row:first-of-type{border-top:0}
 .student-mini{width:38px;height:38px;border-radius:50%;background:var(--beige);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:700;color:var(--blue);flex:0 0 auto}
@@ -132,11 +174,17 @@ button{font:inherit;cursor:pointer;border:0;background:none}
     <a class="side-logo" href="teacher-dashboard.html">ВЫСЬ<span>кабинет преподавателя</span></a>
     <nav class="side-nav">
       <a class="active" href="teacher-dashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>Главная</a>
-      <a href="#students"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="M15 15.2c2.2.3 3.8 2.2 3.8 4.8"/></svg>Мои ученики</a>
-      <a href="#materials"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>Материалы</a>
-      <a href="#lessons"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Занятия</a>
+      <a href="teacher-schedule.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Расписание</a>
+      <a href="teacher-students.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Ученики</a>
+      <a href="teacher-groups.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="M15 15.2c2.2.3 3.8 2.2 3.8 4.8"/></svg>Группы</a>
+      <a href="teacher-homework.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M9 12h6M9 16h6"/></svg>Домашние задания<span class="count">3</span></a>
+      <a href="#" onclick="return soon('Прогресс')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V10M11 19V5M18 19v-7"/></svg>Прогресс</a>
+      <a href="#" onclick="return soon('Записи')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>Записи</a>
+      <a href="#" onclick="return soon('Материалы')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></svg>Материалы</a>
+      <a href="#" onclick="return soon('Сообщения')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Сообщения</a>
       <div class="side-sep"></div>
-      <a href="#profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Профиль</a>
+      <a href="#" onclick="return soon('Финансы')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 1.1 3 2.3c0 1.9-2.2 2-3 2.4-1 .5-3 .8-3 2.6 0 1.2 1.3 2.2 3 2.2s3-1 3-2.2"/></svg>Финансы</a>
+      <a href="teacher-settings.html#profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>Профиль</a>
       <a href="teacher-settings.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.6 2 3.4 2.3-1a7 7 0 0 0 2 1.2L10 21h4l.6-2.6a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.6c.07-.4.1-.8.1-1.2Z"/></svg>Настройки</a>
     </nav>
     <div class="side-foot">
@@ -156,113 +204,95 @@ button{font:inherit;cursor:pointer;border:0;background:none}
     </div>
 
     <div class="greet">
-      <h1>Добрый день, Кристина</h1>
-      <p>Сегодня 3 занятия и 2 работы на проверке.</p>
+      <h1>Добрый день, Кристина Сергеевна!</h1>
+      <p>Сегодня, 18 сентября · 3 занятия</p>
     </div>
 
-    <div class="stat-row">
-      <div class="stat-card"><b>12</b><span>учеников</span></div>
-      <div class="stat-card"><b>3</b><span>занятия сегодня</span></div>
-      <div class="stat-card"><b>2</b><span>работы на проверке</span></div>
-      <div class="stat-card"><b>4.6</b><span>средний балл группы</span></div>
+    <div class="quick-actions">
+      <button class="qa-btn" onclick="soon('Добавить ученика')">+ Добавить ученика</button>
+      <button class="qa-btn" onclick="soon('Создать группу')">+ Создать группу</button>
+      <button class="qa-btn" onclick="soon('Создать ДЗ')">+ Создать ДЗ</button>
     </div>
 
     <div class="panel" id="lessons">
-      <div class="panel-head"><h3>Занятия сегодня</h3></div>
-      <div class="lesson-row"><span class="lesson-time">14:00</span><div><b>Геометрия · Аня Кузнецова</b><span>Подготовка к контрольной · онлайн</span></div></div>
-      <div class="lesson-row"><span class="lesson-time">16:00</span><div><b>Математика · мини-группа (4 ученика)</b><span>Квадратные неравенства · онлайн</span></div></div>
-      <div class="lesson-row"><span class="lesson-time">18:00</span><div><b>Консультация · Тимофей</b><span>Разбор пробного варианта · онлайн</span></div></div>
+      <div class="panel-head"><h3>Сегодня</h3><a href="teacher-schedule.html">Всё расписание</a></div>
+      <div class="today-lesson">
+        <div class="tl-time">14:00</div>
+        <div class="tl-body"><b>ОГЭ по математике</b><span>Индивидуальное занятие · Аня Кузнецова · Подготовка к контрольной · онлайн</span></div>
+        <button class="tl-btn" onclick="soon('Занятие')">Открыть</button>
+      </div>
+      <div class="today-lesson live">
+        <div class="tl-time">16:00<span class="tl-live">сейчас</span></div>
+        <div class="tl-body"><b>ОГЭ по математике</b><span>Группа №3 · 4 ученика · Квадратные неравенства · онлайн</span></div>
+        <button class="tl-btn primary" onclick="soon('Вход на занятие')">Войти на занятие</button>
+      </div>
+      <div class="today-lesson">
+        <div class="tl-time">18:00</div>
+        <div class="tl-body"><b>Консультация</b><span>Тимофей · Разбор пробного варианта · онлайн</span></div>
+        <button class="tl-btn" onclick="soon('Занятие')">Открыть</button>
+      </div>
+    </div>
+
+    <div class="panel" id="attention">
+      <div class="panel-head"><h3>Требует внимания</h3></div>
+      <div class="attn-item"><span class="attn-dot red"></span><div><b>3 домашних задания ждут проверки</b></div><button class="tl-btn" onclick="location.href='teacher-homework.html'">Открыть</button></div>
+      <div class="attn-item"><span class="attn-dot yellow"></span><div><b>Аня не выполнила домашнюю работу</b></div><button class="tl-btn" onclick="soon('Работа Ани')">Открыть</button></div>
+      <div class="attn-item"><span class="attn-dot yellow"></span><div><b>Маша пропустила занятие</b></div><button class="tl-btn" onclick="soon('Карточка Маши')">Открыть</button></div>
+      <div class="attn-item"><span class="attn-dot blue"></span><div><b>Новое сообщение от родителя</b></div><button class="tl-btn" onclick="soon('Сообщения')">Открыть</button></div>
+      <div class="attn-item"><span class="attn-dot green"></span><div><b>Лиза показала личный рекорд</b></div><button class="tl-btn" onclick="soon('Карточка Лизы')">Открыть</button></div>
+    </div>
+
+    <div class="panel" id="next-lesson">
+      <div class="panel-head"><h3>Следующее занятие</h3></div>
+      <div class="next-lesson-row">
+        <div class="nl-time">16:00</div>
+        <div class="nl-body">
+          <b>ОГЭ по математике</b>
+          <span>Группа №3 · 4 ученика</span>
+          <span class="nl-topic">Тема: Квадратные неравенства</span>
+        </div>
+        <div class="nl-actions">
+          <button class="tl-btn" onclick="location.href='teacher-groups.html'">Открыть группу</button>
+          <button class="tl-btn primary" onclick="soon('Вход на занятие')">Войти на занятие</button>
+        </div>
+      </div>
     </div>
 
     <div class="panel" id="students">
-      <div class="panel-head"><h3>Мои ученики</h3><a href="#">Все ученики</a></div>
-      <div class="student-row"><span class="student-mini">АК</span><div><b>Аня Кузнецова</b><span>9 класс · ОГЭ математика</span></div><span class="student-badge badge-ok">Прогресс 68%</span></div>
-      <div class="student-row"><span class="student-mini">ТМ</span><div><b>Тимофей</b><span>9 класс · ОГЭ математика</span></div><span class="student-badge badge-check">2 работы на проверке</span></div>
-      <div class="student-row"><span class="student-mini">МР</span><div><b>Марк</b><span>9 класс · ОГЭ математика</span></div><span class="student-badge badge-ok">Прогресс 74%</span></div>
-    </div>
-
-    <div class="panel" id="materials">
-      <div class="panel-head"><h3>Материалы</h3><span style="font-size:14px;color:#7c8a93">видны ученикам после публикации</span></div>
-      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
-        <div class="ic">📎</div>
-        <b>Загрузить файл или несколько</b>
-        <span>PDF, видео, изображения — перетащи сюда или нажми, чтобы выбрать</span>
+      <div class="panel-head"><h3>Обрати внимание</h3><a href="teacher-students.html">Все ученики</a></div>
+      <div class="watch-student">
+        <span class="student-mini">АК</span>
+        <div class="ws-body"><b>Аня</b><span>15/19 · прогресс +7</span></div>
+        <span class="student-badge badge-ok">🟢 В графике</span>
       </div>
-      <input type="file" id="file-input" multiple style="display:none" onchange="handleFiles(event)">
-      <div class="file-list" id="file-list"></div>
-    </div>
-
-    <div class="panel" id="profile">
-      <div class="panel-head"><h3>Профиль преподавателя</h3></div>
-      <div class="profile-cover" id="cover-wrap">
-        <svg id="cover-default" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><linearGradient id="coverSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dfe7ec"/><stop offset="100%" stop-color="#b9c9d3"/></linearGradient>
-          <linearGradient id="coverFog" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--blue)" stop-opacity="0"/><stop offset="100%" stop-color="var(--blue)" stop-opacity=".65"/></linearGradient></defs>
-          <rect width="800" height="200" fill="url(#coverSky)"/>
-          <polygon points="0,200 0,110 90,55 170,125 260,40 340,120 430,65 520,135 610,80 700,135 800,100 800,200" fill="#1a2530" opacity=".55"/>
-          <rect y="105" width="800" height="95" fill="url(#coverFog)"/>
-        </svg>
-        <img id="cover-img" alt="" style="display:none">
-        <label class="cover-edit-btn" for="cover-upload">📷 Изменить обложку</label>
-        <input type="file" id="cover-upload" accept="image/*" style="display:none" onchange="handleCoverUpload(event)">
+      <div class="watch-student">
+        <span class="student-mini">МШ</span>
+        <div class="ws-body"><b>Маша</b><span>12/19 · последний результат снизился</span></div>
+        <span class="student-badge badge-check">🟡 Нужна практика</span>
       </div>
-      <div class="field-row">
-        <div class="field"><label>Имя</label><input type="text" value="Кристина Крылова"></div>
-        <div class="field"><label>Предмет</label><input type="text" value="Математика · ОГЭ"></div>
+      <div class="watch-student">
+        <span class="student-mini">ЛВ</span>
+        <div class="ws-body"><b>Лиза</b><span>18/19 · новый личный рекорд</span></div>
+        <span class="student-badge badge-ok">🟢 Отличная динамика</span>
       </div>
-      <div class="field"><label>О себе</label><textarea rows="3">Готовлю к ОГЭ без спешки и лишней сложности: сначала закрываем пробелы в базе, затем выстраиваем системную практику.</textarea></div>
-      <div class="field-row">
-        <div class="field"><label>Email</label><input type="email" value="kristina@vys.school"></div>
-        <div class="field"><label>Telegram</label><input type="text" value="@kristina_vys"></div>
-      </div>
-      <button class="btn-blue" onclick="saveTeacherProfile()">Сохранить профиль</button>
-      <span id="teacher-saved" style="display:block;margin-top:12px;font-size:15px;color:var(--green);font-weight:700;opacity:0;transition:.2s">Сохранено</span>
     </div>
   </main>
 </div>
 
 <script>
-function handleFiles(event){
-  const files = Array.from(event.target.files);
-  const list = document.getElementById('file-list');
-  files.forEach(f => {
-    const sizeKb = Math.round(f.size / 1024);
-    const row = document.createElement('div');
-    row.className = 'file-item';
-    row.innerHTML = `<span class="file-ic">📄</span><div><b>${f.name}</b><span>${sizeKb} КБ</span></div><a class="file-remove" href="#">Убрать</a>`;
-    row.querySelector('.file-remove').onclick = (e) => { e.preventDefault(); row.remove(); };
-    list.appendChild(row);
-  });
-  event.target.value = '';
-}
-function handleCoverUpload(event){
-  const file = event.target.files[0];
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    try{ localStorage.setItem('vys-teacher-cover', e.target.result); }catch(err){}
-    applyTeacherCover(e.target.result);
-  };
-  reader.readAsDataURL(file);
-}
-function applyTeacherCover(dataUrl){
-  const img = document.getElementById('cover-img');
-  const def = document.getElementById('cover-default');
-  img.src = dataUrl;
-  img.style.display = 'block';
-  def.style.display = 'none';
-}
-(function(){
-  try{
-    const savedCover = localStorage.getItem('vys-teacher-cover');
-    if(savedCover) applyTeacherCover(savedCover);
-  }catch(e){}
-})();
-function saveTeacherProfile(){
-  const note = document.getElementById('teacher-saved');
-  note.style.opacity = '1';
-  clearTimeout(window.__tTimer);
-  window.__tTimer = setTimeout(()=>{ note.style.opacity = '0'; }, 2200);
+function soon(name){
+  let t = document.getElementById('soon-toast');
+  if(!t){
+    t = document.createElement('div');
+    t.id = 'soon-toast';
+    t.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#242b30;color:#fff;padding:12px 20px;border-radius:30px;font-size:14px;font-weight:600;z-index:200;opacity:0;transition:.25s;pointer-events:none;white-space:nowrap';
+    document.body.appendChild(t);
+  }
+  t.textContent = name + ' — этот раздел скоро будет готов';
+  requestAnimationFrame(()=>{ t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)'; });
+  clearTimeout(window.__soonTimer);
+  window.__soonTimer = setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(20px)'; }, 1800);
+  return false;
 }
 </script>
 
