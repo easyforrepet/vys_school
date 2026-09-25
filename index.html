@@ -554,6 +554,11 @@ footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{di
     <h2>С возвращением.</h2>
     <p>Войдите, чтобы увидеть прогресс, расписание и домашние задания.</p>
     <form onsubmit="sendLogin(event)">
+      <div class="role-select">
+        <label class="role-opt"><input type="radio" name="login-role" value="student" checked><span>Ученик</span></label>
+        <label class="role-opt"><input type="radio" name="login-role" value="parent"><span>Родитель</span></label>
+        <label class="role-opt"><input type="radio" name="login-role" value="teacher"><span>Педагог <b>превью</b></span></label>
+      </div>
       <input required type="email" placeholder="Email">
       <input required type="password" placeholder="Пароль">
       <button class="button login-submit">Войти</button>
@@ -623,8 +628,14 @@ function closeLoginModal(){
 }
 function sendLogin(event){
   event.preventDefault();
-  document.getElementById('login-message').textContent='Вход выполнен, переходим в кабинет…';
-  setTimeout(()=>{ window.location.href='dashboard.html'; },500);
+  const role = event.target.querySelector('input[name="login-role"]:checked').value;
+  if(role === 'teacher'){
+    document.getElementById('login-message').textContent='Вход выполнен, переходим в кабинет преподавателя…';
+    setTimeout(()=>{ window.location.href='teacher-dashboard.html'; },500);
+  } else {
+    document.getElementById('login-message').textContent='Вход выполнен, переходим в кабинет…';
+    setTimeout(()=>{ window.location.href='dashboard.html'; },500);
+  }
 }
 function openRegisterModal(){
   const modal=document.getElementById('register-modal');
