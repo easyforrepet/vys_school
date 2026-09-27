@@ -287,6 +287,13 @@ function saveProfileName(){
     if(savedName){
       document.getElementById('profile-name-display').textContent = savedName;
       document.getElementById('profile-name-input').value = savedName;
+      if(!savedAvatar){
+        var parts = savedName.split(' ');
+        var initials = (parts[0] ? parts[0][0] : '') + (parts[1] ? parts[1][0] : '');
+        if(initials){
+          document.querySelectorAll('#avatar-fallback').forEach(function(el){ el.textContent = initials.toUpperCase(); });
+        }
+      }
     }
   }catch(e){}
 })();

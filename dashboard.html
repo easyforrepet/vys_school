@@ -522,6 +522,10 @@ renderNotif();
   if(a){
     document.querySelectorAll('.who-img').forEach(function(img){ img.src=a; img.style.display='block'; });
     document.querySelectorAll('.who-fallback').forEach(function(el){ el.style.display='none'; });
+  } else if(n){
+    var parts = n.split(' ');
+    var initials = (parts[0] ? parts[0][0] : '') + (parts[1] ? parts[1][0] : '');
+    if(initials) document.querySelectorAll('.who-fallback').forEach(function(el){ el.textContent = initials.toUpperCase(); });
   }
   if(n){
     var first = n.split(' ')[0];

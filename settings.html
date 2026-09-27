@@ -71,6 +71,9 @@ input[type=text]{font:inherit}
 
 /* name */
 .field label{display:block;font-size:14px;font-weight:700;color:#5c574f;margin-bottom:8px}
+.field-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:400px}
+#avatar-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+@media(max-width:480px){.field-row-2{grid-template-columns:1fr}}
 .field input{width:100%;max-width:280px;border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:16px}
 .field input:focus{outline:none;border-color:var(--wine)}
 .name-opts{display:flex;gap:8px;margin-top:10px}
@@ -168,12 +171,31 @@ input[type=text]{font:inherit}
     </div>
 
     <div class="panel">
+      <h3>Имя и фамилия</h3>
+      <p class="hint">Инициалы в аватаре обновятся автоматически.</p>
+      <div class="field-row-2">
+        <div class="field">
+          <label>Имя</label>
+          <input type="text" id="first-name-input" value="Аня" maxlength="20" oninput="updateInitialsPreview()">
+        </div>
+        <div class="field">
+          <label>Фамилия</label>
+          <input type="text" id="last-name-input" value="Кузнецова" maxlength="20" oninput="updateInitialsPreview()">
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
       <h3>Аватар</h3>
-      <p class="hint">Загрузи фото или выбери готовый вариант.</p>
+      <p class="hint">По умолчанию — инициалы имени и фамилии. Можно загрузить своё фото или выбрать значок.</p>
       <div class="avatar-row">
-        <div class="avatar-preview" id="avatar-preview">АК<span class="sym" id="avatar-sym">🏔</span></div>
+        <div class="avatar-preview" id="avatar-preview">
+          <span id="avatar-fallback">АК</span>
+          <img id="avatar-photo" alt="" style="display:none">
+          <span class="sym" id="avatar-sym">🏔</span>
+        </div>
         <div class="avatar-opts" id="avatar-opts">
-          <button class="avatar-opt selected" onclick="pickAvatar(this,'АК')">АК</button>
+          <button class="avatar-opt selected" onclick="pickAvatar(this,'initials')">Инициалы</button>
           <button class="avatar-opt" onclick="pickAvatar(this,'🦊')">🦊</button>
           <button class="avatar-opt" onclick="pickAvatar(this,'🌿')">🌿</button>
           <button class="avatar-opt" onclick="pickAvatar(this,'📐')">📐</button>
@@ -196,18 +218,6 @@ input[type=text]{font:inherit}
       </div>
     </div>
 
-    <div class="panel">
-      <h3>Имя в кабинете</h3>
-      <p class="hint">Как к тебе обращаться на главном экране.</p>
-      <div class="field">
-        <input type="text" id="name-input" value="Аня" maxlength="20">
-        <div class="name-opts">
-          <button class="selected" onclick="pickName(this,'Аня')">Аня</button>
-          <button onclick="pickName(this,'Анна')">Анна</button>
-          <button onclick="pickName(this,'Анюта')">Анюта</button>
-        </div>
-      </div>
-    </div>
 
     <div class="panel">
       <h3>Тема оформления</h3>
@@ -297,39 +307,40 @@ function updateThemeButtons(){
   document.getElementById('theme-dark').classList.toggle('selected', isDark);
 }
 updateThemeButtons();
-(function(){
-  try{
-    const savedName = localStorage.getItem('vys-name');
-    if(savedName) document.getElementById('name-input').value = savedName;
-    const savedAvatar = localStorage.getItem('vys-avatar');
-    if(savedAvatar){
-      const preview = document.getElementById('avatar-preview');
-      let img = preview.querySelector('img');
-      if(!img){
-        img = document.createElement('img');
-        img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%';
-        preview.appendChild(img);
-      }
-      img.src = savedAvatar;
-      preview.childNodes[0].nodeValue = '';
-    }
-  }catch(e){}
-})();
+
+let avatarMode = 'initials'; // 'initials' | emoji string | 'photo'
+
+function computeInitials(){
+  const first = document.getElementById('first-name-input').value.trim();
+  const last = document.getElementById('last-name-input').value.trim();
+  const a = first ? first[0].toUpperCase() : '';
+  const b = last ? last[0].toUpperCase() : '';
+  return (a + b) || 'АК';
+}
+
+function updateInitialsPreview(){
+  if(avatarMode === 'initials'){
+    document.getElementById('avatar-fallback').textContent = computeInitials();
+  }
+}
+
 function pickAvatar(btn, val){
   document.querySelectorAll('#avatar-opts .avatar-opt').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
-  document.getElementById('avatar-preview').childNodes[0].nodeValue = val;
+  avatarMode = val;
+  document.getElementById('avatar-photo').style.display = 'none';
+  document.getElementById('avatar-fallback').style.display = 'flex';
+  document.getElementById('avatar-fallback').textContent = (val === 'initials') ? computeInitials() : val;
+  try{ localStorage.removeItem('vys-avatar'); }catch(e){}
 }
+
 function pickSymbol(btn, val){
   document.querySelectorAll('#symbol-grid .symbol-opt').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
   document.getElementById('avatar-sym').textContent = val;
+  try{ localStorage.setItem('vys-symbol', val); }catch(e){}
 }
-function pickName(btn, val){
-  document.querySelectorAll('.name-opts button').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  document.getElementById('name-input').value = val;
-}
+
 const DENSITY_MAP = ['calm','minimal','contrast'];
 function pickAppearance(el){
   document.querySelectorAll('.appear-opt').forEach(o=>o.classList.remove('selected'));
@@ -351,31 +362,41 @@ function pickAppearance(el){
     }
   }catch(e){}
 })();
+
 function toggleSwitch(el){
   el.classList.toggle('on');
 }
+
 function handleSettingsAvatarUpload(event){
   const file = event.target.files[0];
   if(!file) return;
   const reader = new FileReader();
   reader.onload = (e) => {
     try{ localStorage.setItem('vys-avatar', e.target.result); }catch(err){}
-    const preview = document.getElementById('avatar-preview');
-    let img = preview.querySelector('img');
-    if(!img){
-      img = document.createElement('img');
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%';
-      preview.appendChild(img);
-    }
-    img.src = e.target.result;
-    preview.childNodes[0].nodeValue = '';
+    avatarMode = 'photo';
+    document.querySelectorAll('#avatar-opts .avatar-opt').forEach(b=>b.classList.remove('selected'));
+    document.getElementById('avatar-photo').src = e.target.result;
+    document.getElementById('avatar-photo').style.display = 'block';
+    document.getElementById('avatar-fallback').style.display = 'none';
   };
   reader.readAsDataURL(file);
 }
+
 function saveSettings(){
   try{
-    const nameVal = document.getElementById('name-input').value.trim();
-    if(nameVal) localStorage.setItem('vys-name', nameVal);
+    const first = document.getElementById('first-name-input').value.trim();
+    const last = document.getElementById('last-name-input').value.trim();
+    const fullName = [first, last].filter(Boolean).join(' ');
+    if(fullName) localStorage.setItem('vys-name', fullName);
+    if(avatarMode === 'initials'){
+      localStorage.removeItem('vys-avatar');
+      localStorage.setItem('vys-avatar-mode', 'initials');
+    } else if(avatarMode === 'photo'){
+      localStorage.setItem('vys-avatar-mode', 'photo');
+    } else {
+      localStorage.setItem('vys-avatar-mode', avatarMode);
+      localStorage.removeItem('vys-avatar');
+    }
   }catch(e){}
 
   let t = document.getElementById('big-saved-toast');
@@ -390,6 +411,37 @@ function saveSettings(){
   clearTimeout(window.__savedTimer);
   window.__savedTimer = setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(24px)'; }, 2600);
 }
+
+(function(){
+  try{
+    const savedName = localStorage.getItem('vys-name');
+    if(savedName){
+      const parts = savedName.split(' ');
+      document.getElementById('first-name-input').value = parts[0] || '';
+      document.getElementById('last-name-input').value = parts.slice(1).join(' ') || '';
+    }
+    const savedSymbol = localStorage.getItem('vys-symbol');
+    if(savedSymbol) document.getElementById('avatar-sym').textContent = savedSymbol;
+
+    const savedAvatar = localStorage.getItem('vys-avatar');
+    const savedMode = localStorage.getItem('vys-avatar-mode');
+    if(savedAvatar){
+      avatarMode = 'photo';
+      document.getElementById('avatar-photo').src = savedAvatar;
+      document.getElementById('avatar-photo').style.display = 'block';
+      document.getElementById('avatar-fallback').style.display = 'none';
+      document.querySelectorAll('#avatar-opts .avatar-opt').forEach(b=>b.classList.remove('selected'));
+    } else if(savedMode && savedMode !== 'initials'){
+      avatarMode = savedMode;
+      document.getElementById('avatar-fallback').textContent = savedMode;
+      document.querySelectorAll('#avatar-opts .avatar-opt').forEach(b=>{
+        b.classList.toggle('selected', b.textContent.trim() === savedMode);
+      });
+    } else {
+      updateInitialsPreview();
+    }
+  }catch(e){}
+})();
 </script>
 
 
