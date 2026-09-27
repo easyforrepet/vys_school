@@ -179,7 +179,8 @@ input[type=text]{font:inherit}
           <button class="avatar-opt" onclick="pickAvatar(this,'📐')">📐</button>
           <button class="avatar-opt" onclick="pickAvatar(this,'🌙')">🌙</button>
         </div>
-        <button class="upload-btn" onclick="soon('Загрузка фото')">Загрузить своё фото</button>
+        <button class="upload-btn" onclick="document.getElementById('settings-photo-upload').click()">Загрузить своё фото</button>
+        <input type="file" id="settings-photo-upload" accept="image/*" style="display:none" onchange="handleSettingsAvatarUpload(event)">
       </div>
     </div>
 
@@ -296,6 +297,24 @@ function updateThemeButtons(){
   document.getElementById('theme-dark').classList.toggle('selected', isDark);
 }
 updateThemeButtons();
+(function(){
+  try{
+    const savedName = localStorage.getItem('vys-name');
+    if(savedName) document.getElementById('name-input').value = savedName;
+    const savedAvatar = localStorage.getItem('vys-avatar');
+    if(savedAvatar){
+      const preview = document.getElementById('avatar-preview');
+      let img = preview.querySelector('img');
+      if(!img){
+        img = document.createElement('img');
+        img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%';
+        preview.appendChild(img);
+      }
+      img.src = savedAvatar;
+      preview.childNodes[0].nodeValue = '';
+    }
+  }catch(e){}
+})();
 function pickAvatar(btn, val){
   document.querySelectorAll('#avatar-opts .avatar-opt').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
@@ -335,7 +354,30 @@ function pickAppearance(el){
 function toggleSwitch(el){
   el.classList.toggle('on');
 }
+function handleSettingsAvatarUpload(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try{ localStorage.setItem('vys-avatar', e.target.result); }catch(err){}
+    const preview = document.getElementById('avatar-preview');
+    let img = preview.querySelector('img');
+    if(!img){
+      img = document.createElement('img');
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%';
+      preview.appendChild(img);
+    }
+    img.src = e.target.result;
+    preview.childNodes[0].nodeValue = '';
+  };
+  reader.readAsDataURL(file);
+}
 function saveSettings(){
+  try{
+    const nameVal = document.getElementById('name-input').value.trim();
+    if(nameVal) localStorage.setItem('vys-name', nameVal);
+  }catch(e){}
+
   let t = document.getElementById('big-saved-toast');
   if(!t){
     t = document.createElement('div');
