@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="view-transition" content="same-origin">
+<title>ВЫСЬ — заявка преподавателя</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+h1,h2{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none}
+
+.wrap{width:100%;max-width:460px}
+.logo{display:block;text-align:center;color:var(--wine);font-size:30px;font-weight:700;margin-bottom:36px}
+.card{background:#fff;border-radius:16px;padding:40px 36px}
+.card h1{font-size:26px;text-align:center}
+.card p.sub{text-align:center;font-size:14px;color:#8a8378;margin-top:10px;line-height:1.6}
+
+form{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:12px;font-weight:700;color:#5c574f;margin-bottom:7px}
+.field input{width:100%;border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:14.5px;font:inherit;color:var(--ink);background:#fff}
+.field input:focus{outline:none;border-color:var(--blue)}
+
+.btn-primary{background:var(--blue);color:#fff;padding:14px;border-radius:9px;font-size:15px;font-weight:700;margin-top:6px;transition:.15s}
+.btn-primary:hover{background:#456b89}
+
+.back-link{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:26px;font-size:13px;color:#8a8378;font-weight:600}
+
+.sent-state{display:none;text-align:center}
+.sent-state.show{display:block}
+.sent-state .ic{font-size:34px;margin-bottom:14px}
+.sent-state p{font-size:14px;color:#5c574f;line-height:1.6;margin-top:10px}
+@media(max-width:480px){.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="logo" href="index.html">ВЫСЬ</a>
+  <div class="card">
+    <div id="form-state">
+      <h1>Заявка преподавателя</h1>
+      <p class="sub">Аккаунт педагога не создаётся напрямую — заявку рассматривает администрация ВЫСИ.</p>
+
+      <form id="apply-form" onsubmit="return handleApply(event)">
+        <div class="row2">
+          <div class="field"><label>Имя</label><input required type="text" placeholder="Имя"></div>
+          <div class="field"><label>Фамилия</label><input required type="text" placeholder="Фамилия"></div>
+        </div>
+        <div class="field"><label>Предмет</label><input required type="text" placeholder="Например, математика"></div>
+        <div class="field"><label>Опыт преподавания</label><input type="text" placeholder="Например, 5 лет"></div>
+        <div class="row2">
+          <div class="field"><label>Телефон</label><input required type="tel" placeholder="Телефон"></div>
+          <div class="field"><label>Email</label><input required type="email" placeholder="Email"></div>
+        </div>
+        <button class="btn-primary">Отправить заявку</button>
+      </form>
+    </div>
+
+    <div class="sent-state" id="sent-state">
+      <div class="ic">✅</div>
+      <h1>Заявка отправлена</h1>
+      <p>Мы свяжемся с вами после проверки. Доступ к кабинету преподавателя открывается администрацией, а не автоматически.</p>
+    </div>
+  </div>
+  <a class="back-link" href="index.html">← Вернуться на сайт</a>
+</div>
+
+<script>
+function handleApply(event){
+  event.preventDefault();
+  document.getElementById('form-state').style.display = 'none';
+  document.getElementById('sent-state').classList.add('show');
+  return false;
+}
+</script>
+
+</body>
+</html>
