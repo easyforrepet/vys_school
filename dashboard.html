@@ -51,7 +51,8 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .icon-btn .dot{position:absolute;top:6px;right:6px;background:var(--wine);color:#fff;font-size:12px;font-weight:800;border-radius:50%;width:15px;height:15px;display:flex;align-items:center;justify-content:center}
 .who{display:flex;align-items:center;gap:10px;padding:5px 10px 5px 5px;border-radius:30px;border:1px solid transparent;transition:.15s}
 .who:hover{border-color:var(--line)}
-.who-avatar{width:38px;height:38px;border-radius:50%;background:var(--beige);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:700;color:var(--wine)}
+.who-avatar{width:38px;height:38px;border-radius:50%;background:var(--beige);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:700;color:var(--wine);flex:0 0 auto;overflow:hidden;position:relative}
+.who-img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .who b{display:block;font-size:15px}
 .who span{display:block;font-size:12px;color:#8a8378}
 
@@ -269,14 +270,14 @@ button{font:inherit;cursor:pointer;border:0;background:none}
       </div>
     </div>
       <a class="who" href="profile.html">
-        <span class="who-avatar">АК</span>
-        <span><b>Аня</b><span>9 класс</span></span>
+        <span class="who-avatar"><span class="who-fallback">АК</span><img class="who-img" alt="" style="display:none"></span>
+        <span><b id="who-name">Аня</b><span>9 класс</span></span>
       </a>
     </div>
 
     <div class="greet">
       <div>
-        <h1>Доброе <em>утро</em>, Аня! ☀️</h1>
+        <h1>Доброе <em>утро</em>, <span id="greet-name">Аня</span>! ☀️</h1>
         <p>Сегодня ты делаешь ещё один шаг к своим большим целям.</p>
       </div>
       <p class="greet-note">Ты можешь больше,<br>чем думаешь ♡</p>
@@ -515,7 +516,20 @@ document.addEventListener('click', function(e){
 });
 renderNotif();
 </script>
-<script>(function(){try{var a=localStorage.getItem('vys-avatar');var n=localStorage.getItem('vys-name');if(a){document.querySelectorAll('.who-avatar,.avatar-preview').forEach(function(el){el.style.backgroundImage='url('+a+')';el.style.backgroundSize='cover';el.style.backgroundPosition='center';el.childNodes[0].nodeValue='';});}if(n){document.querySelectorAll('.who b').forEach(function(el){el.textContent=n.split(' ')[0];});}}catch(e){}})();</script>
+<script>(function(){try{
+  var a=localStorage.getItem('vys-avatar');
+  var n=localStorage.getItem('vys-name');
+  if(a){
+    document.querySelectorAll('.who-img').forEach(function(img){ img.src=a; img.style.display='block'; });
+    document.querySelectorAll('.who-fallback').forEach(function(el){ el.style.display='none'; });
+  }
+  if(n){
+    var first = n.split(' ')[0];
+    document.querySelectorAll('.who b, #who-name').forEach(function(el){ el.textContent=first; });
+    var greetName = document.getElementById('greet-name');
+    if(greetName) greetName.textContent = first;
+  }
+}catch(e){}})();</script>
 <script>
 function toggleMobileMenu(){
   var overlay = document.getElementById('mobile-menu-overlay');

@@ -82,7 +82,11 @@ function handleRegister(event){
 
   // Публичная регистрация всегда создаёт аккаунт ученика.
   // Роль преподавателя выдаётся только после отдельной заявки и проверки — не через эту форму.
-  try{ localStorage.setItem('vys-account-role', 'student'); }catch(e){}
+  try{
+    localStorage.setItem('vys-account-role', 'student');
+    const name = document.getElementById('reg-name').value.trim();
+    if(name) localStorage.setItem('vys-name', name);
+  }catch(e){}
 
   setTimeout(()=>{ window.location.href = 'free-lessons.html'; }, 500);
   return false;
