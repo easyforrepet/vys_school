@@ -78,7 +78,7 @@ form{margin-top:30px;display:flex;flex-direction:column;gap:16px}
 function handleRegister(event){
   event.preventDefault();
   const msg = document.getElementById('register-msg');
-  msg.textContent = 'Готово! Открываем бесплатные уроки…';
+  msg.textContent = 'Готово! Открываем личный кабинет…';
 
   // Публичная регистрация всегда создаёт аккаунт ученика.
   // Роль преподавателя выдаётся только после отдельной заявки и проверки — не через эту форму.
@@ -88,7 +88,7 @@ function handleRegister(event){
     if(name) localStorage.setItem('vys-name', name);
   }catch(e){}
 
-  setTimeout(()=>{ window.location.href = 'free-lessons.html'; }, 500);
+  setTimeout(()=>{ window.location.href = 'dashboard.html'; }, 500);
   return false;
 }
 </script>
