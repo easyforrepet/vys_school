@@ -93,6 +93,13 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .upload-row{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:14px;color:#5c574f}
 .upload-btn{border:1px dashed var(--line);border-radius:9px;padding:9px 14px;font-size:14px;font-weight:700;color:#5c574f}
 .upload-btn:hover{border-color:var(--wine);color:var(--wine)}
+.hw-file-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.hw-file-item{display:flex;align-items:center;gap:12px;background:var(--cream);border-radius:9px;padding:10px 12px}
+.hw-file-thumb{width:36px;height:36px;border-radius:7px;background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto;overflow:hidden}
+.hw-file-thumb img{width:100%;height:100%;object-fit:cover}
+.hw-file-item b{font-size:13.5px;display:block}
+.hw-file-item span{font-size:11.5px;color:#8a8378}
+.hw-file-remove{margin-left:auto;font-size:12px;color:var(--wine);font-weight:700;flex:0 0 auto}
 .material-item{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--divider);font-size:14px}
 .material-item:first-of-type{border-top:0}
 .material-item a{color:var(--wine);font-weight:700}
@@ -207,8 +214,10 @@ button{font:inherit;cursor:pointer;border:0;background:none}
           <div id="d-tasks"></div>
           <textarea class="answer-area" id="d-answer" placeholder="Впиши решение или комментарий к заданию…"></textarea>
           <div class="upload-row">
-            <button class="upload-btn" onclick="soon('Загрузка файла')">📎 Прикрепить файл или фото</button>
+            <button class="upload-btn" onclick="document.getElementById('hw-file-input').click()">📎 Прикрепить файл или фото</button>
+            <input type="file" id="hw-file-input" accept="image/*,.pdf,.doc,.docx" multiple style="display:none" onchange="handleHwFiles(event)">
           </div>
+          <div class="hw-file-list" id="hw-file-list"></div>
           <div class="submit-row">
             <button class="btn-primary" id="d-submit" onclick="submitHomework()">Отправить на проверку</button>
             <div class="sent-note" id="d-sent">Отправлено на проверку — Кристина посмотрит и оставит комментарий.</div>
@@ -327,12 +336,38 @@ function openDetail(id){
     submitBtn.textContent = 'Отправить на проверку';
   }
   document.getElementById('d-answer').value = '';
+  document.getElementById('hw-file-list').innerHTML = '';
+  document.getElementById('hw-file-input').value = '';
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
 function closeDetail(){
   document.getElementById('detail-view').classList.remove('show');
   document.getElementById('list-wrap').style.display = 'block';
+}
+
+function handleHwFiles(event){
+  const files = Array.from(event.target.files);
+  const list = document.getElementById('hw-file-list');
+  files.forEach(file => {
+    const sizeKb = Math.round(file.size / 1024);
+    const row = document.createElement('div');
+    row.className = 'hw-file-item';
+    const isImage = file.type.startsWith('image/');
+    row.innerHTML = `<span class="hw-file-thumb">${isImage ? '' : '📄'}</span><div><b>${file.name}</b><span>${sizeKb} КБ</span></div><a class="hw-file-remove" href="#">Убрать</a>`;
+    if(isImage){
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        row.querySelector('.hw-file-thumb').appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    }
+    row.querySelector('.hw-file-remove').onclick = (e) => { e.preventDefault(); row.remove(); };
+    list.appendChild(row);
+  });
+  event.target.value = '';
 }
 
 function submitHomework(){
