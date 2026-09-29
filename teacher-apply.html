@@ -39,9 +39,9 @@ form{margin-top:28px;display:flex;flex-direction:column;gap:14px}
 .sent-state p{font-size:14px;color:#5c574f;line-height:1.6;margin-top:10px}
 @media(max-width:480px){.row2{grid-template-columns:1fr}}
 
-/* универсальная инверсия цвета при наведении на кнопки */
-button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
-button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
+/* наведение на кнопки — заливка бордовым */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:background .2s ease,color .2s ease,border-color .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{background:var(--wine) !important;color:#fff !important;border-color:var(--wine) !important}
 </style>
 </head>
 <body>

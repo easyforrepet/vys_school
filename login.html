@@ -50,9 +50,9 @@ form{margin-top:30px;display:flex;flex-direction:column;gap:16px}
 .forgot-note{text-align:center;margin-top:14px;font-size:12.5px;color:#8a8378;display:none}
 .forgot-note.show{display:block}
 
-/* универсальная инверсия цвета при наведении на кнопки */
-button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
-button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
+/* наведение на кнопки — заливка бордовым */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:background .2s ease,color .2s ease,border-color .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{background:var(--wine) !important;color:#fff !important;border-color:var(--wine) !important}
 </style>
 </head>
 <body>

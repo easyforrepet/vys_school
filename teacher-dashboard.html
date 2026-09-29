@@ -160,9 +160,9 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .menu-fab{display:none;position:fixed;top:16px;left:16px;z-index:80;width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--line);align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(36,43,48,.14)}
 @media(max-width:1180px){.menu-fab{display:flex}}
 
-/* универсальная инверсия цвета при наведении на кнопки */
-button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
-button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
+/* наведение на кнопки — заливка синим (цвет кабинета педагога) */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:background .2s ease,color .2s ease,border-color .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{background:var(--blue) !important;color:#fff !important;border-color:var(--blue) !important}
 </style>
 </head>
 <body>

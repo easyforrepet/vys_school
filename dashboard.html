@@ -226,9 +226,9 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .mobile-menu-sheet .side-nav{margin-top:0}
 .mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
 
-/* универсальная инверсия цвета при наведении на кнопки */
-button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
-button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
+/* наведение на кнопки — заливка бордовым */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:background .2s ease,color .2s ease,border-color .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{background:var(--wine) !important;color:#fff !important;border-color:var(--wine) !important}
 </style>
 </head>
 <body>
@@ -391,7 +391,7 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
     </div>
 
     <div class="sched-panel">
-      <div class="panel-head" style="margin-bottom:0"><h3>Расписание</h3><a href="#" onclick="return soon('Расписание на неделю')">Вся неделя →</a></div>
+      <div class="panel-head" style="margin-bottom:0"><h3>Расписание</h3><a href="schedule.html">Вся неделя →</a></div>
       <div class="sched-days">
         <button onclick="return soon('Понедельник')">Пн 16</button>
         <button onclick="return soon('Вторник')">Вт 17</button>
@@ -399,10 +399,10 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
         <button onclick="return soon('Четверг')">Чт 19</button>
         <button onclick="return soon('Пятница')">Пт 20</button>
       </div>
-      <div class="sched-item"><span class="sched-time">18:00</span><div><b>Математика</b><span>Квадратные неравенства · онлайн</span></div></div>
-      <div class="sched-item"><span class="sched-time">17:00</span><div><b>Консультация</b><span>Разбор заданий · онлайн</span></div></div>
-      <div class="sched-item"><span class="sched-time">14:00</span><div><b>Геометрия</b><span>Подготовка к контрольной</span></div></div>
-      <a class="sched-add" href="#" onclick="return soon('Добавление в календарь')">Добавить в календарь</a>
+      <a class="sched-item" href="schedule.html" style="cursor:pointer"><span class="sched-time">18:00</span><div><b>Математика</b><span>Квадратные неравенства · онлайн</span></div></a>
+      <a class="sched-item" href="schedule.html" style="cursor:pointer"><span class="sched-time">17:00</span><div><b>Консультация</b><span>Разбор заданий · онлайн</span></div></a>
+      <a class="sched-item" href="schedule.html" style="cursor:pointer"><span class="sched-time">14:00</span><div><b>Геометрия</b><span>Подготовка к контрольной</span></div></a>
+      <a class="sched-add" href="schedule.html">Добавить в календарь</a>
     </div>
 
     <div class="dark-panel">

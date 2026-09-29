@@ -69,9 +69,9 @@ table.group-table th:not(:first-child){text-align:right}
 .mobile-menu-sheet .side-nav{margin-top:0}
 .mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
 
-/* универсальная инверсия цвета при наведении на кнопки */
-button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
-button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
+/* наведение на кнопки — заливка синим (цвет кабинета педагога) */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:background .2s ease,color .2s ease,border-color .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{background:var(--blue) !important;color:#fff !important;border-color:var(--blue) !important}
 </style>
 </head>
 <body>
