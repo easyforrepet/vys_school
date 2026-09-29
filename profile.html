@@ -54,11 +54,12 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .cover-edit-btn{position:absolute;top:14px;right:14px;background:rgba(45,43,41,.55);color:#fff;font-size:12px;font-weight:700;padding:9px 14px;border-radius:20px;cursor:pointer;backdrop-filter:blur(2px)}
 .cover-edit-btn:hover{background:rgba(45,43,41,.75)}
 .profile-head{position:relative;z-index:2}
-.profile-avatar{cursor:pointer;overflow:hidden;position:relative}
-.profile-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.avatar-edit-badge{position:absolute;bottom:-2px;right:-2px;width:24px;height:24px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid var(--cream)}
-.edit-name-row{display:flex;gap:10px;max-width:400px;flex-wrap:wrap}
-.edit-name-row input{flex:1;min-width:180px;border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:16px;font:inherit;color:var(--ink);background:var(--panel)}
+.profile-avatar{cursor:pointer;position:relative}
+#avatar-fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:26px;line-height:1;letter-spacing:-1px}
+.profile-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:absolute;inset:0}
+.avatar-edit-badge{position:absolute;bottom:-2px;right:-2px;width:24px;height:24px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid var(--cream);z-index:2}
+.edit-name-row{display:flex;gap:10px;max-width:460px;flex-wrap:wrap}
+.edit-name-row input{flex:1;min-width:140px;border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:16px;font:inherit;color:var(--ink);background:var(--panel)}
 .edit-name-row input:focus{outline:none;border-color:var(--wine)}
 .btn-save-name{background:var(--wine);color:#fff;padding:11px 20px;border-radius:9px;font-size:15px;font-weight:700}
 .btn-save-name:hover{background:#5c0304}
@@ -165,10 +166,11 @@ button{font:inherit;cursor:pointer;border:0;background:none}
     </div>
 
     <div class="panel">
-      <h3>Имя и фото</h3>
-      <p class="hint">Меняется сразу и сохраняется в этом браузере.</p>
+      <h3>Имя и фамилия</h3>
+      <p class="hint">Меняется сразу и сохраняется в этом браузере. Кружок с фото — нажми на него, чтобы загрузить своё.</p>
       <div class="edit-name-row">
-        <input type="text" id="profile-name-input" value="Аня Кузнецова" maxlength="30">
+        <input type="text" id="first-name-input" value="Аня" maxlength="20" placeholder="Имя" oninput="updateProfileInitials()">
+        <input type="text" id="last-name-input" value="Кузнецова" maxlength="20" placeholder="Фамилия" oninput="updateProfileInitials()">
         <button class="btn-save-name" onclick="saveProfileName()">Сохранить</button>
       </div>
       <span class="saved-note" id="name-saved-note">Сохранено</span>
@@ -260,11 +262,30 @@ function applyAvatar(dataUrl){
     if(fallback){ fallback.style.display = 'none'; }
   });
 }
+function computeProfileInitials(){
+  var first = document.getElementById('first-name-input').value.trim();
+  var last = document.getElementById('last-name-input').value.trim();
+  var a = first ? first[0].toUpperCase() : '';
+  var b = last ? last[0].toUpperCase() : '';
+  return (a + b) || 'АК';
+}
+function updateProfileInitials(){
+  var savedAvatar = null;
+  try{ savedAvatar = localStorage.getItem('vys-avatar'); }catch(e){}
+  if(!savedAvatar){
+    var fallback = document.getElementById('avatar-fallback');
+    fallback.textContent = computeProfileInitials();
+    fallback.style.display = 'flex';
+  }
+}
 function saveProfileName(){
-  var val = document.getElementById('profile-name-input').value.trim();
-  if(!val) return;
-  document.getElementById('profile-name-display').textContent = val;
-  try{ localStorage.setItem('vys-name', val); }catch(e){}
+  var first = document.getElementById('first-name-input').value.trim();
+  var last = document.getElementById('last-name-input').value.trim();
+  var fullName = [first, last].filter(Boolean).join(' ');
+  if(!fullName) return;
+  document.getElementById('profile-name-display').textContent = fullName;
+  try{ localStorage.setItem('vys-name', fullName); }catch(e){}
+  updateProfileInitials();
   var note = document.getElementById('name-saved-note');
   note.classList.add('show');
   clearTimeout(window.__nameTimer);
@@ -278,16 +299,12 @@ function saveProfileName(){
     if(savedCover) applyCover(savedCover);
     var savedName = localStorage.getItem('vys-name');
     if(savedName){
+      var parts = savedName.split(' ');
+      document.getElementById('first-name-input').value = parts[0] || '';
+      document.getElementById('last-name-input').value = parts.slice(1).join(' ') || '';
       document.getElementById('profile-name-display').textContent = savedName;
-      document.getElementById('profile-name-input').value = savedName;
-      if(!savedAvatar){
-        var parts = savedName.split(' ');
-        var initials = (parts[0] ? parts[0][0] : '') + (parts[1] ? parts[1][0] : '');
-        if(initials){
-          document.querySelectorAll('#avatar-fallback').forEach(function(el){ el.textContent = initials.toUpperCase(); });
-        }
-      }
     }
+    updateProfileInitials();
   }catch(e){}
 })();
 </script>
