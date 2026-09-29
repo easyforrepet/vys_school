@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="view-transition" content="same-origin">
 <title>ВЫСЬ — заявка преподавателя</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
 h1,h2{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -40,6 +38,10 @@ form{margin-top:28px;display:flex;flex-direction:column;gap:14px}
 .sent-state .ic{font-size:34px;margin-bottom:14px}
 .sent-state p{font-size:14px;color:#5c574f;line-height:1.6;margin-top:10px}
 @media(max-width:480px){.row2{grid-template-columns:1fr}}
+
+/* универсальная инверсия цвета при наведении на кнопки */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
 </style>
 </head>
 <body>

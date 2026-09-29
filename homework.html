@@ -4,7 +4,6 @@
 <script>(function(){try{var t=localStorage.getItem("vys-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="view-transition" content="same-origin">
 
 <title>ВЫСЬ — домашние задания</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eeece5}[data-theme="dark"]{--cream:#1a1817;--beige:#25211f;--ink:#ece6e0;--line:#3a3532;--panel:#242020;--divider:#332f2c}html[data-theme="dark"] body{background:var(--cream)}[data-density="minimal"]{--divider:transparent;--line:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .lesson-card,[data-density="minimal"] .profile-head,[data-density="minimal"] .course-hero,[data-density="minimal"] .stat-card,[data-density="minimal"] .ach-card,[data-density="minimal"] .hw-card,[data-density="minimal"] .rec-card,[data-density="minimal"] .mat-card,[data-density="minimal"] .course-list-card,[data-density="minimal"] .lesson-row,[data-density="minimal"] .task,[data-density="minimal"] .topic-card,[data-density="minimal"] .growth-item,[data-density="minimal"] .student-row,[data-density="minimal"] .doc-card,[data-density="minimal"] .week-day,[data-density="minimal"] .lesson-info,[data-density="minimal"] .prep-panel{background:transparent!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:4px!important}[data-density="minimal"] .side-note{display:none}[data-density="contrast"]{--line:#8a8378}[data-density="contrast"] .panel,[data-density="contrast"] .lesson-card,[data-density="contrast"] .profile-head,[data-density="contrast"] .course-hero,[data-density="contrast"] .stat-card,[data-density="contrast"] .ach-card,[data-density="contrast"] .hw-card,[data-density="contrast"] .rec-card,[data-density="contrast"] .mat-card,[data-density="contrast"] .course-list-card,[data-density="contrast"] .lesson-row,[data-density="contrast"] .task,[data-density="contrast"] .topic-card,[data-density="contrast"] .growth-item,[data-density="contrast"] .student-row,[data-density="contrast"] .doc-card,[data-density="contrast"] .week-day,[data-density="contrast"] .lesson-info,[data-density="contrast"] .prep-panel{border-left:5px solid var(--wine)!important;border-radius:4px!important}[data-density="contrast"] h1,[data-density="contrast"] h2,[data-density="contrast"] h3,[data-density="contrast"] .side-logo{color:var(--wine)!important}[data-density="contrast"] b,[data-density="contrast"] .side-nav a{font-weight:800!important}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -145,6 +143,10 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .mobile-menu-handle{width:40px;height:4px;background:var(--line);border-radius:4px;margin:10px auto 14px}
 .mobile-menu-sheet .side-nav{margin-top:0}
 .mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
+
+/* универсальная инверсия цвета при наведении на кнопки */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
 </style>
 </head>
 <body>
@@ -173,7 +175,7 @@ button{font:inherit;cursor:pointer;border:0;background:none}
     <div class="topbar">
       <a class="back" href="dashboard.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>На главную</a>
       <div class="notif-wrap">
-      <button class="icon-btn" aria-label="Уведомления" onclick="toggleNotif(event)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot" id="notif-badge">2</span></button>
+      <button class="icon-btn" aria-label="Уведомления" onclick="toggleNotif(event)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5c0-3.6-2.7-6.5-6-6.5S6 4.9 6 8.5c0 5.2-2 6.5-2 6.5h16s-2-1.3-2-6.5Z"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="dot" id="notif-badge">2</span></button>
       <div class="notif-panel" id="notif-panel">
         <div class="notif-head"><b>Уведомления</b><a href="#" onclick="markAllRead(event)">Прочитать всё</a></div>
         <div id="notif-list"></div>
@@ -403,23 +405,36 @@ setFilter('all', document.querySelector('.filters button'));
 
 <script>
 const NOTIFS = [
-  {ic:'✅', title:'Домашнее задание проверено', text:'Кристина оставила комментарий к «Линейные уравнения»', time:'2 часа назад', unread:true, link:'homework.html'},
-  {ic:'⏰', title:'Скоро занятие', text:'Математика начнётся через 30 минут', time:'сегодня, 17:30', unread:true, link:'schedule.html'},
-  {ic:'🎥', title:'Новая запись', text:'Добавлена запись «Разбор задач ОГЭ»', time:'вчера', unread:false, link:'recordings.html'},
-  {ic:'💬', title:'Комментарий преподавателя', text:'Кристина оставила комментарий к домашнему заданию', time:'2 дня назад', unread:false, link:'homework.html'}
+  {id:'n1', ic:'✅', title:'Домашнее задание проверено', text:'Кристина оставила комментарий к «Линейные уравнения»', time:'2 часа назад', link:'homework.html'},
+  {id:'n2', ic:'⏰', title:'Скоро занятие', text:'Математика начнётся через 30 минут', time:'сегодня, 17:30', link:'schedule.html'},
+  {id:'n3', ic:'🏆', title:'Новое достижение', text:'«7 дней подряд» — получено!', time:'сегодня', link:'achievements.html'},
+  {id:'n4', ic:'🎥', title:'Новая запись', text:'Добавлена запись «Разбор задач ОГЭ»', time:'вчера', link:'recordings.html'},
+  {id:'n5', ic:'💬', title:'Комментарий преподавателя', text:'Кристина оставила комментарий к домашнему заданию', time:'2 дня назад', link:'homework.html'}
 ];
+function getReadIds(){
+  try{ return JSON.parse(localStorage.getItem('vys-notif-read') || '[]'); }catch(e){ return []; }
+}
+function markRead(id){
+  try{
+    const read = getReadIds();
+    if(!read.includes(id)){ read.push(id); localStorage.setItem('vys-notif-read', JSON.stringify(read)); }
+  }catch(e){}
+  renderNotif();
+}
 function renderNotif(){
   const list = document.getElementById('notif-list');
   if(!list) return;
+  const read = getReadIds();
   list.innerHTML = NOTIFS.length ? NOTIFS.map(n => `
-      <a class="notif-item ${n.unread?'unread':''}" href="${n.link}">
+      <a class="notif-item ${read.includes(n.id)?'':'unread'}" href="${n.link}" onclick="markRead('${n.id}')">
         <span class="notif-ic">${n.ic}</span>
         <div class="notif-body"><b>${n.title}</b><span>${n.text}</span><span class="notif-time">${n.time}</span></div>
       </a>`).join('') : '<div class="notif-empty">Новых уведомлений нет 🎉</div>';
   updateBadge();
 }
 function updateBadge(){
-  const unread = NOTIFS.filter(n=>n.unread).length;
+  const read = getReadIds();
+  const unread = NOTIFS.filter(n=>!read.includes(n.id)).length;
   const badge = document.getElementById('notif-badge');
   if(badge) badge.style.display = unread > 0 ? 'flex' : 'none';
   if(badge) badge.textContent = unread;
@@ -430,7 +445,7 @@ function toggleNotif(e){
 }
 function markAllRead(e){
   if(e) e.preventDefault();
-  NOTIFS.forEach(n=>n.unread=false);
+  try{ localStorage.setItem('vys-notif-read', JSON.stringify(NOTIFS.map(n=>n.id))); }catch(err){}
   renderNotif();
 }
 document.addEventListener('click', function(e){

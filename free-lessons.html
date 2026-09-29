@@ -45,6 +45,10 @@ footer{background:var(--ink);color:var(--cream);padding:40px 0;font-size:10px;te
   h1{font-size:38px}
   .grid{grid-template-columns:1fr}
 }
+
+/* универсальная инверсия цвета при наведении на кнопки */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
 </style>
 </head>
 <body>

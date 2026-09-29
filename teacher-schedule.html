@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="view-transition" content="same-origin">
 <title>ВЫСЬ — расписание преподавателя</title>
 <script>(function(){try{var t=localStorage.getItem("vys-teacher-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-teacher-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +12,6 @@
 :root{--cream:#eef2f5;--beige:#d8e2e8;--wine:#460203;--ink:#242b30;--gold:#b98c4f;--line:#c3d0d8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eef2f5}
 [data-theme="dark"]{--cream:#161c20;--beige:#212a30;--ink:#e7edf1;--line:#313d45;--panel:#1f272c;--divider:#2a343a}
 html[data-theme="dark"] body{background:var(--cream)}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -115,6 +113,10 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .mobile-menu-handle{width:40px;height:4px;background:var(--line);border-radius:4px;margin:10px auto 14px}
 .mobile-menu-sheet .side-nav{margin-top:0}
 .mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
+
+/* универсальная инверсия цвета при наведении на кнопки */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
 </style>
 </head>
 <body>

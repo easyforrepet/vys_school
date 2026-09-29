@@ -4,7 +4,6 @@
 <script>(function(){try{var t=localStorage.getItem("vys-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}var d=localStorage.getItem("vys-density");if(d && d!=="calm"){document.documentElement.setAttribute("data-density",d);}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="view-transition" content="same-origin">
 
 <title>ВЫСЬ — достижения</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eeece5}[data-theme="dark"]{--cream:#1a1817;--beige:#25211f;--ink:#ece6e0;--line:#3a3532;--panel:#242020;--divider:#332f2c}html[data-theme="dark"] body{background:var(--cream)}[data-density="minimal"]{--divider:transparent;--line:transparent}[data-density="minimal"] .panel,[data-density="minimal"] .lesson-card,[data-density="minimal"] .profile-head,[data-density="minimal"] .course-hero,[data-density="minimal"] .stat-card,[data-density="minimal"] .ach-card,[data-density="minimal"] .hw-card,[data-density="minimal"] .rec-card,[data-density="minimal"] .mat-card,[data-density="minimal"] .course-list-card,[data-density="minimal"] .lesson-row,[data-density="minimal"] .task,[data-density="minimal"] .topic-card,[data-density="minimal"] .growth-item,[data-density="minimal"] .student-row,[data-density="minimal"] .doc-card,[data-density="minimal"] .week-day,[data-density="minimal"] .lesson-info,[data-density="minimal"] .prep-panel{background:transparent!important;border:1px solid var(--line)!important;box-shadow:none!important;border-radius:4px!important}[data-density="minimal"] .side-note{display:none}[data-density="contrast"]{--line:#8a8378}[data-density="contrast"] .panel,[data-density="contrast"] .lesson-card,[data-density="contrast"] .profile-head,[data-density="contrast"] .course-hero,[data-density="contrast"] .stat-card,[data-density="contrast"] .ach-card,[data-density="contrast"] .hw-card,[data-density="contrast"] .rec-card,[data-density="contrast"] .mat-card,[data-density="contrast"] .course-list-card,[data-density="contrast"] .lesson-row,[data-density="contrast"] .task,[data-density="contrast"] .topic-card,[data-density="contrast"] .growth-item,[data-density="contrast"] .student-row,[data-density="contrast"] .doc-card,[data-density="contrast"] .week-day,[data-density="contrast"] .lesson-info,[data-density="contrast"] .prep-panel{border-left:5px solid var(--wine)!important;border-radius:4px!important}[data-density="contrast"] h1,[data-density="contrast"] h2,[data-density="contrast"] h3,[data-density="contrast"] .side-logo{color:var(--wine)!important}[data-density="contrast"] b,[data-density="contrast"] .side-nav a{font-weight:800!important}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -78,6 +76,10 @@ button{font:inherit;cursor:pointer;border:0;background:none}
 .mobile-menu-handle{width:40px;height:4px;background:var(--line);border-radius:4px;margin:10px auto 14px}
 .mobile-menu-sheet .side-nav{margin-top:0}
 .mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
+
+/* универсальная инверсия цвета при наведении на кнопки */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
 </style>
 </head>
 <body>

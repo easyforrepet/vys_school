@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="view-transition" content="same-origin">
 
 <title>ВЫСЬ — настройки преподавателя</title>
 <script>(function(){try{var t=localStorage.getItem("vys-teacher-theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark");}}catch(e){}})();</script>
@@ -14,7 +13,6 @@
 :root{--cream:#eef2f5;--beige:#d8e2e8;--wine:#460203;--ink:#242b30;--gold:#b98c4f;--line:#c3d0d8;--blue:#567d9d;--green:#5b7a5e;--panel:#fff;--divider:#eef2f5}
 [data-theme="dark"]{--cream:#161c20;--beige:#212a30;--ink:#e7edf1;--line:#313d45;--panel:#1f272c;--divider:#2a343a}
 html[data-theme="dark"] body{background:var(--cream)}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:cubic-bezier(.4,0,.2,1)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.02em;margin:0}
@@ -105,6 +103,10 @@ input[type=text]{font:inherit}
 .mobile-menu-sheet .side-nav a{font-size:16px;padding:13px 12px}
 .menu-fab{display:none;position:fixed;top:16px;left:16px;z-index:80;width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--line);align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(36,43,48,.14)}
 @media(max-width:1180px){.menu-fab{display:flex}}
+
+/* универсальная инверсия цвета при наведении на кнопки */
+button:not(.switch):not(.attend-btns button),[class*="btn" i]:not(.switch),.nav-cta,.login,.logout-fab,.menu-fab,a.button{transition:filter .2s ease}
+button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch):hover,.nav-cta:hover,.login:hover,.logout-fab:hover,.menu-fab:hover,a.button:hover{filter:invert(1)}
 </style>
 </head>
 <body>
