@@ -9,17 +9,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
  :root{--cream:#f1efe9;--beige:#dbd8d1;--wine:#460203;--ink:#2d2b29;--gold:#b98c4f;--line:#c7c2b8;--blue:#567d9d}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif}.grain{position:fixed;inset:0;opacity:.13;pointer-events:none;z-index:50;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}.container{width:92%;max-width:1600px;margin:auto}.header{height:92px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}.logo{color:var(--wine);font-family:'Fraunces',serif;font-size:32px;text-decoration:none;font-weight:700;letter-spacing:-1px;display:inline-flex;align-items:center;gap:8px}.logo-wine{color:var(--wine)}.logo-blue{color:var(--blue)}.logo span{font-family:Manrope;font-size:14px;margin-left:5px}.nav{display:flex;gap:8px;margin-left:auto;margin-right:20px}.nav a,.footer-wrap a{color:inherit;text-decoration:none;font-size:14px;transition:.15s}.footer-wrap a:hover{color:var(--blue)}.nav a{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:11px 18px;border-radius:30px;border:1px solid transparent;white-space:nowrap;font-weight:700;font-size:15px}.nav a.nav-cta{font-weight:800}button{font:inherit;cursor:pointer;border:0}.login{border:1px solid var(--ink);background:transparent;border-radius:30px;padding:12px 20px;font-size:15px;font-weight:700;transition:.2s;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:inherit}.login:hover{border-color:var(--blue);color:var(--blue)}.menu{display:none}.hero{min-height:auto;padding-top:70px;padding-bottom:70px;width:100%;overflow:hidden}.hero-grid{display:grid;grid-template-columns:minmax(320px,560px) 1fr;gap:50px;align-items:center}.hero-copy{max-width:560px;text-align:left;padding-left:max(24px,calc((100vw - 1600px)/2 + 4vw))}.hero-copy .eyebrow{justify-content:flex-start}.hero-text,.hero-route{margin-left:0;margin-right:0}.hero-actions{justify-content:flex-start}.hero-photo{border-radius:24px 0 0 24px;overflow:hidden;position:relative;height:640px}.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}.eyebrow,.section-mark{text-transform:uppercase;letter-spacing:.13em;font-weight:800}.eyebrow{color:var(--wine);justify-content:center;font-size:18px}.section-mark{font-size:9px}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.055em}h1{font-size:84px;line-height:.94;margin:24px 0 30px}em{color:var(--wine);font-weight:600}.hero-text{line-height:1.7;font-size:18px;max-width:520px;margin:0 auto}.hero-actions{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:34px;flex-wrap:wrap}.button{padding:17px 30px;border-radius:40px;font-size:17px;font-weight:800;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.primary{background:var(--wine);color:#fff;border-color:var(--wine)}.primary:hover{background:var(--cream);color:var(--wine)}.secondary{background:var(--blue);color:#fff;border-color:var(--blue)}.secondary:hover{background:var(--cream);color:var(--blue)}.button b{font-size:19px;margin-left:16px}.text-link{display:inline-block;font-size:14px;color:var(--ink);text-decoration:none;font-weight:700;padding-bottom:5px;margin-top:22px;transition:color .2s}.text-link:hover{color:var(--wine)}.text-link span{margin-left:10px}.hero-principles{display:flex;justify-content:center;gap:28px;margin-top:44px;text-transform:uppercase;letter-spacing:.1em;font-size:16px;font-weight:700;color:var(--ink)}.hero-principles span:not(:last-child):after{content:'·';margin-left:28px;color:var(--blue)}.header-bar{background:var(--blue)}.header-bar .logo{color:#fff}.header-bar .logo-wine{color:#fff}.header-bar .logo-blue{color:var(--gold)}.header-bar .nav a{color:#fff;border-color:#fff;font-weight:700}.header-bar .nav a:hover{background:#fff;color:var(--blue);border-color:#fff}.header-bar .nav a.nav-cta{background:var(--wine);color:#fff;border-color:var(--wine)}.header-bar .nav a.nav-cta:hover{background:#fff;color:var(--wine);border-color:#fff}.header-bar .login{border-color:#fff;color:#fff;font-weight:700}.header-bar .login:hover{background:#fff;color:var(--blue);border-color:#fff}.header-bar .menu i{background:#fff}.brand-icon{flex:0 0 auto}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif}.grain{position:fixed;inset:0;opacity:.13;pointer-events:none;z-index:50;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}.container{width:92%;max-width:1600px;margin:auto}.header{height:92px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}.logo{color:var(--wine);font-family:'Fraunces',serif;font-size:32px;text-decoration:none;font-weight:700;letter-spacing:-1px;display:inline-flex;align-items:center;gap:8px}.logo-wine{color:var(--wine)}.logo-blue{color:var(--blue)}.logo span{font-family:Manrope;font-size:14px;margin-left:5px}.nav{display:flex;gap:8px;margin-left:auto;margin-right:20px}.nav a,.footer-wrap a{color:inherit;text-decoration:none;font-size:14px;transition:.15s}.footer-wrap a:hover{color:var(--blue)}.nav a{display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:11px 18px;border-radius:30px;border:1px solid transparent;white-space:nowrap;font-weight:700;font-size:15px}.nav a.nav-cta{font-weight:800}button{font:inherit;cursor:pointer;border:0}.login{border:1px solid var(--ink);background:transparent;border-radius:30px;padding:12px 20px;font-size:15px;font-weight:700;transition:.2s;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:inherit}.login:hover{border-color:var(--blue);color:var(--blue)}.menu{display:none}.hero{min-height:auto;padding-top:70px;padding-bottom:70px;width:100%;overflow:hidden}.hero-grid{display:grid;grid-template-columns:minmax(380px,680px) 1fr;gap:50px;align-items:center}.hero-copy{max-width:680px;text-align:left;padding-left:max(24px,calc((100vw - 1600px)/2 + 4vw))}.hero-copy .eyebrow{justify-content:flex-start}.hero-text,.hero-route{margin-left:0;margin-right:0}.hero-actions{justify-content:flex-start}.hero-photo{border-radius:24px 0 0 24px;overflow:hidden;position:relative;height:640px}.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}.eyebrow,.section-mark{text-transform:uppercase;letter-spacing:.13em;font-weight:800}.eyebrow{color:var(--wine);justify-content:flex-start;font-size:18px}.section-mark{font-size:9px}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-.055em}h1{font-size:84px;line-height:.94;margin:24px 0 30px}em{color:var(--wine);font-weight:600}.hero-text{line-height:1.7;font-size:19px;max-width:none;margin:0}.hero-actions{display:flex;gap:16px;align-items:center;justify-content:flex-start;margin-top:34px;flex-wrap:wrap}.button{padding:17px 30px;border-radius:40px;font-size:17px;font-weight:800;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.primary{background:var(--wine);color:#fff;border-color:var(--wine)}.primary:hover{background:var(--cream);color:var(--wine)}.secondary{background:var(--blue);color:#fff;border-color:var(--blue)}.secondary:hover{background:var(--cream);color:var(--blue)}.button b{font-size:19px;margin-left:16px}.text-link{display:inline-block;font-size:14px;color:var(--ink);text-decoration:none;font-weight:700;padding-bottom:5px;margin-top:22px;transition:color .2s}.text-link:hover{color:var(--wine)}.text-link span{margin-left:10px}.hero-principles{display:flex;justify-content:center;gap:28px;margin-top:44px;text-transform:uppercase;letter-spacing:.1em;font-size:16px;font-weight:700;color:var(--ink)}.hero-principles span:not(:last-child):after{content:'·';margin-left:28px;color:var(--blue)}.header-bar{background:var(--blue)}.header-bar .logo{color:#fff}.header-bar .logo-wine{color:#fff}.header-bar .logo-blue{color:var(--gold)}.header-bar .nav a{color:#fff;border-color:#fff;font-weight:700}.header-bar .nav a:hover{background:#fff;color:var(--blue);border-color:#fff}.header-bar .nav a.nav-cta{background:var(--wine);color:#fff;border-color:var(--wine)}.header-bar .nav a.nav-cta:hover{background:#fff;color:var(--wine);border-color:#fff}.header-bar .login{border-color:#fff;color:#fff;font-weight:700}.header-bar .login:hover{background:#fff;color:var(--blue);border-color:#fff}.header-bar .menu i{background:#fff}.brand-icon{flex:0 0 auto}
 .statement{background:var(--wine);color:#fff;padding:112px 0}.statement-grid{display:grid;grid-template-columns:.5fr 1.25fr .75fr;gap:40px}.statement .section-mark{color:#d7b7b0}.statement h2{font-size:53px;line-height:1.01;margin-bottom:29px}.statement-grid>div>p{font-size:15px;line-height:1.8;max-width:500px;color:#f1e4e1}.arrow-link{display:inline-block;color:#fff;text-decoration:none;margin-top:18px;font-size:14px;border-bottom:1px solid #fff;padding-bottom:5px}.arrow-link b{margin-left:25px}.manifest{display:flex;flex-direction:column;gap:24px;padding-top:5px}.manifest div{border-top:1px solid rgba(255,255,255,.35);padding-top:12px}.manifest b{font-size:11px;margin-right:18px}.manifest span{font-size:12px;line-height:1.45;color:#ead8d4}
-.directions{padding-top:120px;padding-bottom:120px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px}.section-head h2,.format h2{font-size:55px;line-height:.94;margin:20px 0 0}.section-head>p{font-size:14px;line-height:1.7;max-width:275px}.direction-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px}.direction-card{height:390px;padding:25px;display:flex;flex-direction:column}.direction-card>span{text-transform:uppercase;letter-spacing:.1em;font-size:8px}.direction-card h3{font-size:35px;line-height:1.02;margin:auto 0 13px}.direction-card p{font-size:12px;line-height:1.55;max-width:220px}.direction-card button{background:transparent;text-align:left;text-transform:uppercase;font-size:11px;letter-spacing:.08em;padding:8px 12px;margin-left:-12px;border-radius:20px;transition:background .2s,color .2s}.direction-card button b{font-size:15px;margin-left:10px}.wine{background:var(--wine);color:#fff}.wine button:hover{background:#fff;color:var(--wine)}.blue{background:var(--blue);color:#fff}.blue button:hover{background:#fff;color:var(--blue)}.paper{background:var(--beige)}.paper button:hover{background:var(--ink);color:var(--beige)}
+.directions{padding-top:120px;padding-bottom:120px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px}.section-head h2,.format h2{font-size:55px;line-height:.94;margin:20px 0 0}.section-head>p{font-size:14px;line-height:1.7;max-width:275px}.direction-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px}.direction-card{height:390px;padding:25px;display:flex;flex-direction:column}.direction-grid-single{grid-template-columns:1fr;max-width:640px}.direction-grid-single .direction-card{height:auto;padding:40px}.directions-next{margin-top:28px;font-size:15px;color:#5c574f}.directions-next b{color:var(--ink);font-weight:800}.directions-next span{text-transform:uppercase;font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.08em;margin-left:8px;border:1px solid var(--blue);padding:3px 9px;border-radius:20px}
+.facts{padding:100px 0;background:var(--beige)}
+.facts-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;row-gap:20px}
+.facts-row span{font-family:'Fraunces',serif;font-weight:600;font-size:34px;letter-spacing:-.01em;color:var(--ink);padding:0 36px;position:relative;text-align:center}
+.facts-row span:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:38px;background:#b9b1a7}
+.formats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:20px}
+.formats-card{border:1px solid var(--line);border-radius:16px;padding:32px 26px}
+.formats-card h3{font-size:22px;margin-bottom:10px}
+.formats-card p{font-size:13.5px;color:#5c574f}
+.formats-card-wine{background:var(--wine);border-color:var(--wine)}
+.formats-card-wine h3,.formats-card-wine p{color:#fff}
+@media(max-width:760px){.formats-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.facts-row span{font-size:24px;padding:10px 20px}.facts-row span:not(:last-child)::after{display:none}}.direction-card>span{text-transform:uppercase;letter-spacing:.1em;font-size:8px}.direction-card h3{font-size:35px;line-height:1.02;margin:auto 0 13px}.direction-card p{font-size:12px;line-height:1.55;max-width:220px}.direction-card button{background:transparent;text-align:left;text-transform:uppercase;font-size:11px;letter-spacing:.08em;padding:8px 12px;margin-left:-12px;border-radius:20px;transition:background .2s,color .2s}.direction-card button b{font-size:15px;margin-left:10px}.wine{background:var(--wine);color:#fff}.wine button:hover{background:#fff;color:var(--wine)}.blue{background:var(--blue);color:#fff}.blue button:hover{background:#fff;color:var(--blue)}.paper{background:var(--beige)}.paper button:hover{background:var(--ink);color:var(--beige)}
 .teachers{background:#e8e3da;padding:110px 0}.teacher-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-top:50px}.teacher-card{background:var(--cream);padding:30px;display:flex;flex-direction:column;justify-content:flex-end;min-height:320px}.teacher-card.soon{background:var(--blue);color:#fff;justify-content:center}.teacher-avatar{width:60px;height:60px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-size:20px;margin-bottom:16px}.teacher-card h3{font-size:26px;margin-bottom:6px}.teacher-card .role{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--wine);margin-bottom:10px}.teacher-card.soon .role{color:#dce7e9}.teacher-card p{font-size:13px;line-height:1.6;max-width:320px}
 .teacher-facts{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
 .teacher-facts div b{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:#8a8378;margin-bottom:3px}
 .teacher-facts div span{font-size:12px;font-weight:600;color:var(--ink)}
+.teacher-facts-big div b{font-family:'Fraunces',serif;font-size:24px;font-weight:600;text-transform:none;letter-spacing:-.01em;color:var(--wine);margin-bottom:2px}
+.teacher-facts-big div span{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#8a8378;font-weight:700}
+.teacher-more{font-size:13px;line-height:1.6;color:#4a453f;max-width:320px;margin-top:16px;display:none}
+.teacher-more.show{display:block}
+.teacher-cta{margin-top:14px;font-size:14px;font-weight:700;color:var(--wine);display:flex;align-items:center;gap:8px}
+.teacher-cta span{transition:transform .2s}
+.teacher-cta:hover span{transform:translateX(4px)}
 .courses{padding:120px 0}.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:50px}.course-card{padding:32px;border:1px solid var(--line)}.course-card.highlight{background:var(--wine);color:#fff;border:none}.course-card .tag{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}.course-card.highlight .tag{color:#e0b9b3}.course-card h3{font-size:29px;margin:14px 0 12px}.course-card p{font-size:13px;line-height:1.65;max-width:320px}.course-card ul{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:8px;font-size:12px}.course-card li:before{content:'— ';color:var(--blue)}.course-card.highlight li:before{color:#e0b9b3}
 .pricing{padding:120px 0;background:#e8e3da}.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:50px}.price-card{background:var(--cream);padding:28px;display:flex;flex-direction:column}.price-card.popular{background:var(--wine);color:#fff;transform:translateY(50px)}.price-card .tag{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}.price-card.popular .tag{color:#e0b9b3}.price-card h3{font-size:22px;margin:12px 0 14px;line-height:1.1}.price-card ul{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px;font-size:12px;flex:1}.price-card li:before{content:'✓ ';color:var(--wine);font-weight:700}.price-card.popular li:before{color:#fff}.pricing-note{margin-top:30px;font-size:13px;color:#5c574f;text-align:center}
 .documents{padding-top:90px;padding-bottom:110px}.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}.doc-card{display:flex;align-items:center;gap:16px;padding:22px;background:var(--beige);text-decoration:none;color:var(--ink)}.doc-icon{width:44px;height:44px;border-radius:50%;background:var(--wine);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-size:18px;flex:0 0 auto}.doc-card b{display:block;font-size:14px;margin-bottom:4px}.doc-card span{font-size:12px;color:#5c574f}
-.method{background:#e8e3da;padding:115px 0}.method-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}.method-art{height:440px;background:var(--ink);position:relative;overflow:hidden;color:var(--cream)}.method-art:before{content:'';position:absolute;width:170px;height:170px;border:1px solid var(--blue);border-radius:50%;bottom:-60px;left:-50px;opacity:.55}.big-word{position:absolute;font-family:'Fraunces';font-size:92px;left:-20px;bottom:43px;letter-spacing:-.09em;transform:rotate(-7deg)}.circle{width:250px;height:250px;border:1px solid var(--cream);border-radius:50%;position:absolute;top:48px;right:60px}.cross:before,.cross:after{content:'';position:absolute;background:var(--gold)}.cross:before{width:80px;height:1px;right:145px;top:172px}.cross:after{height:80px;width:1px;right:185px;top:132px}.stamp{position:absolute;top:22px;left:22px;border:1px solid var(--gold);color:var(--gold);padding:10px;font-size:8px;line-height:1.35;letter-spacing:.12em}.method-content h2{font-size:47px;line-height:1.03;margin:20px 0 38px}.steps{display:flex;flex-direction:column}.steps>div{padding:16px 0;border-top:1px solid #b9b1a7;display:grid;grid-template-columns:65px 1fr}.steps b{font-size:10px;color:var(--wine)}.steps>div:nth-child(2) b{color:var(--blue)}.steps p{margin:0;font-size:13px;line-height:1.6}.steps strong{display:block;font-size:14px}
+.method{background:#e8e3da;padding:115px 0}.method-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}.method-art{height:440px;background:var(--ink);position:relative;overflow:hidden;color:var(--cream)}.method-art:before{content:'';position:absolute;width:170px;height:170px;border:1px solid var(--blue);border-radius:50%;bottom:-60px;left:-50px;opacity:.55}.big-word{position:absolute;font-family:'Fraunces';font-size:92px;left:-20px;bottom:43px;letter-spacing:-.09em;transform:rotate(-7deg)}.circle{width:250px;height:250px;border:1px solid var(--cream);border-radius:50%;position:absolute;top:48px;right:60px}.cross:before,.cross:after{content:'';position:absolute;background:var(--gold)}.cross:before{width:80px;height:1px;right:145px;top:172px}.cross:after{height:80px;width:1px;right:185px;top:132px}.stamp{position:absolute;top:22px;left:22px;border:1px solid var(--gold);color:var(--gold);padding:10px;font-size:8px;line-height:1.35;letter-spacing:.12em}.method-content h2{font-size:47px;line-height:1.03;margin:20px 0 38px}.steps{display:flex;flex-direction:column}.steps>div{padding:16px 0;border-top:1px solid #b9b1a7;display:grid;grid-template-columns:65px 1fr}.steps b{font-size:10px;color:var(--wine)}.steps>div:nth-child(2) b{color:var(--blue)}.steps>div:last-child{background:var(--wine);color:#fff;border-radius:12px;padding:16px 18px;margin-top:6px;border-top:none}.steps>div:last-child b{color:#fff;opacity:.75}.steps>div:last-child strong{color:#fff}.steps p{margin:0;font-size:13px;line-height:1.6}.steps strong{display:block;font-size:14px}
 .format{padding-top:120px;padding-bottom:120px;display:grid;grid-template-columns:.7fr 1.3fr;gap:70px}.format-list{display:grid;grid-template-columns:1fr;gap:0}.format-list>div{border-top:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:55px 1fr 1fr;align-items:start}.format-list span{font-size:9px;color:var(--wine)}.format-list>div:nth-child(2) span{color:var(--blue)}.format-list h3{font-size:25px;margin:0}.format-list p{font-size:12px;line-height:1.6;max-width:230px;margin:0}
 .trial{background:var(--blue);color:#fff;min-height:330px;padding-top:64px;padding-bottom:64px;display:grid;grid-template-columns:1.2fr .8fr .5fr;align-items:end;gap:30px}.trial .section-mark{color:#dce7e9}.trial h2{font-size:50px;line-height:1;margin:20px 0 0}.trial>p{font-size:13px;line-height:1.75;margin:0 0 8px}.round-button{height:132px;width:132px;border-radius:50%;background:var(--cream);color:var(--wine);font-size:12px;font-weight:800;line-height:1.5;justify-self:end;border:2px solid var(--cream);transition:background .2s,color .2s,border-color .2s}.round-button:hover{background:var(--wine);color:var(--cream);border-color:var(--cream)}.round-button b{display:block;font-size:23px;margin-top:7px}
 footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{display:grid;grid-template-columns:1.4fr 1.4fr .8fr .8fr;padding-bottom:68px}.footer-wrap .logo{color:var(--cream)}.footer-wrap p{font-family:'Fraunces';font-size:20px;line-height:1.2}.footer-wrap div{display:flex;flex-direction:column;gap:12px}.copyright{border-top:1px solid #55504c;padding-top:15px;padding-bottom:20px;font-size:8px;color:#aaa39a}.copyright span{float:right}.copyright span:hover{color:var(--blue)}
@@ -27,7 +46,9 @@ footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{di
 .modal-login .modal-box{border-top:4px solid var(--blue)}.modal-login .section-mark{color:var(--blue)}.modal-login input:focus{border-bottom-color:var(--blue)}.login-submit{background:var(--blue);color:#fff;border-color:var(--blue)}.login-submit:hover{background:var(--cream);color:var(--blue)}.switch-link{display:block;margin-top:20px;font-size:13px;color:var(--blue);border-bottom:1px solid var(--blue);padding-bottom:3px;text-decoration:none;width:fit-content}.switch-link-muted{margin-top:12px;color:#8a8378;border-bottom-color:#8a8378;font-size:10px}.modal-login small{color:var(--blue)}
 .modal-register .modal-box{border-top:4px solid var(--wine)}.modal-register .section-mark{color:var(--wine)}.modal-register input:focus{border-bottom-color:var(--wine)}.register-submit{background:var(--wine);color:#fff;border-color:var(--wine)}.register-submit:hover{background:var(--cream);color:var(--wine)}.modal-register small{color:var(--wine)}
 .reveal{opacity:0;transform:translateY(110px) scale(.88);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.reveal.in-view{opacity:1;transform:none}
-.eyebrow-sub{font-size:14px;color:#8a8378;margin-top:10px;font-weight:500;letter-spacing:0}
+.eyebrow-sub{font-size:12px;color:var(--blue);margin-top:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.text-link-subtle{font-size:15px;color:#8a8378;font-weight:600;text-decoration:none;transition:color .2s}
+.text-link-subtle:hover{color:var(--wine)}
 .audience{padding-top:110px;padding-bottom:110px}
 .audience-list{display:flex;flex-direction:column;margin-top:50px}
 .audience-list>div{border-top:1px solid var(--line);padding:26px 0;display:grid;grid-template-columns:70px 1fr;align-items:center}
@@ -38,7 +59,7 @@ footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{di
 .platform-tabs{display:flex;gap:10px;margin:44px 0 28px}
 .platform-tab{padding:12px 22px;border-radius:30px;border:1px solid var(--line);background:transparent;font-size:13px;font-weight:700;color:var(--ink);transition:.2s}
 .platform-tab.active{background:var(--wine);color:#fff;border-color:var(--wine)}
-.platform-screen{background:var(--cream);padding:30px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+.platform-screen{background:var(--cream);padding:30px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 .platform-card{background:#fff;padding:22px;position:relative}
 .platform-card b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--wine)}
 .platform-card h4{font-family:'Fraunces',serif;font-size:19px;margin:10px 0 6px}
@@ -82,7 +103,7 @@ footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{di
 .faq-item p{margin:0 0 26px;font-size:14px;line-height:1.65;color:#5c574f;max-width:680px}
 .doc-card{position:relative}
 .doc-status{position:absolute;top:14px;right:16px;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}
-.hero-route{font-size:13px;color:#8a8378;margin-top:18px;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto}
+.hero-route{font-size:13px;color:#8a8378;margin-top:18px;line-height:1.6;max-width:none;margin-left:0;margin-right:0}
 .audience-cta,.method-cta,.oge-cta{margin-top:40px}
 .direction-tags{font-size:10px!important;text-transform:uppercase;letter-spacing:.05em;color:#e0b9b3!important;margin-top:10px!important}
 .video-soon{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8a8378;border:1px solid var(--line);border-radius:20px;padding:8px 14px;margin-top:20px}
@@ -93,7 +114,11 @@ footer{background:var(--ink);color:var(--cream);padding-top:54px}.footer-wrap{di
 .oge-grid b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--wine);margin-bottom:8px}
 .oge-grid span{font-size:14px;line-height:1.55;color:#4a453f}
 .value{padding-top:90px;padding-bottom:20px}
-.value-block{max-width:640px}
+.value-block{max-width:720px}
+.value-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.value-list span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--wine);border:1px solid var(--line);padding:9px 16px;border-radius:20px}
+.trial-cta-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.trial-note{font-size:12.5px;color:rgba(255,255,255,.75)}
 .value-block h2{font-size:38px;margin-bottom:18px}
 .value-block p{font-size:15px;line-height:1.7;color:#4a453f}
 .compare-wrap{overflow-x:auto;margin:40px 0 10px;-webkit-overflow-scrolling:touch}
@@ -139,38 +164,30 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Онлайн-школа для школьников и их родителей</p>
-      <p class="eyebrow-sub">Начинаем с математики и подготовки к ОГЭ.</p>
+      <p class="eyebrow">Онлайн-школа для школьников, где понятно, что делать дальше.</p>
+      <p class="eyebrow-sub">Математика · ОГЭ · 8–9 класс</p>
       <h1>Расти<br><em>выше.</em><br>Без страха.</h1>
-      <p class="hero-text">ВЫСЬ — школа, где ребёнку не нужно быть лучше всех. Здесь можно ошибаться, задавать вопросы и постепенно становиться сильнее.</p>
-      <p class="hero-route">Определяем уровень — выстраиваем маршрут — занимаемся — отслеживаем прогресс.</p>
       <div class="hero-actions">
-        <button class="button primary" onclick="openModal('Запись на диагностику')">Записаться на диагностику</button>
-        <a class="button secondary" href="register.html">Получить бесплатные уроки</a>
+        <button class="button primary" onclick="openModal('Запись на диагностику')">Записаться на диагностику →</button>
+        <a class="text-link-subtle" href="register.html">Получить бесплатные уроки</a>
       </div>
-      <a class="text-link" href="#directions">Посмотреть направления</a>
     </div>
     <div class="hero-photo">
       <img src="vys-hero-mountain.webp" alt="Маршрут к вершине в тумане">
     </div>
   </div>
-
-  <div class="hero-principles container">
-    <span>спокойно</span><span>свободно</span><span>комфортно</span>
-  </div>
 </section>
 
 <section class="audience container reveal" id="audience">
   <div class="section-head">
-    <div><h2>ВЫСЬ — если ребёнку нужно<br>не больше давления,<br><em>а понятный путь.</em></h2></div>
-    <p>Мы подходим ученикам, которые…</p>
+    <div><h2>Если ребёнок знает правила,<br>но теряется — дело<br><em>не всегда в знаниях.</em></h2></div>
   </div>
   <div class="audience-list">
-    <div><span>01</span><p>Знают правила, но теряются на самостоятельной работе.</p></div>
-    <div><span>02</span><p>Боятся ошибиться и поэтому не задают вопросы.</p></div>
-    <div><span>03</span><p>Накопили пробелы и не понимают, с чего начать.</p></div>
-    <div><span>04</span><p>Готовятся к ОГЭ, но занимаются бессистемно.</p></div>
-    <div><span>05</span><p>Хотят хороший результат без постоянного стресса.</p></div>
+    <div><span>01</span><p>Знает, но не может применить.</p></div>
+    <div><span>02</span><p>Боится ошибиться.</p></div>
+    <div><span>03</span><p>Накопил пробелы.</p></div>
+    <div><span>04</span><p>Не понимает, с чего начать.</p></div>
+    <div><span>05</span><p>Готовится бессистемно.</p></div>
   </div>
   <button class="button primary audience-cta" onclick="openModal('Запись на диагностику')">Разобраться, с чего начать</button>
 </section>
@@ -179,41 +196,29 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
   <div class="container statement-grid">
     <div>
       <h2>Здесь не нужно<br>быть <em>лучше других.</em></h2>
-      <p>Мы создаём пространство, в котором ребёнок сравнивает себя только с собой вчерашним. Без давления, стыда за ошибки и гонки за чужим результатом.</p>
+      <p>Сравниваем ребёнка только с ним вчерашним.</p>
       <a href="#method" class="arrow-link">Наш подход</a>
     </div>
     <div class="manifest">
       <div><b>01</b><span>Не сравниваем<br>учеников между собой.</span></div>
       <div><b>02</b><span>Не боимся<br>ошибаться.</span></div>
       <div><b>03</b><span>Не обесцениваем<br>свои старания.</span></div>
-      <div><b>04</b><span>Даём попробовать<br>платформу бесплатно.</span></div>
     </div>
   </div>
 </section>
 
 <section class="directions container reveal" id="directions">
   <div class="section-head">
-    <div><h2>Куда<br><em>двигаемся?</em></h2></div>
-    <p>Начинаем с подготовки к экзаменам. Постепенно ВЫСЬ станет школой для учеников 1–11 классов.</p>
+    <div><h2>Сейчас —<br><em>математика.</em></h2></div>
   </div>
-  <div class="direction-grid">
+  <div class="direction-grid direction-grid-single">
     <article class="direction-card wine">
       <span>сейчас</span><h3>ОГЭ<br>по математике</h3>
-      <p>Система, практика и уверенность вместо хаотичной подготовки.</p>
-      <p class="direction-tags">8–9 класс · Диагностика · Мини-группы · Контроль прогресса</p>
+      <p class="direction-tags">8–9 класс · Диагностика · Маршрут · Онлайн-занятия · Практика · Контроль прогресса</p>
       <button onclick="document.getElementById('oge').scrollIntoView({behavior:'smooth'})">Подробнее об ОГЭ</button>
     </article>
-    <article class="direction-card blue">
-      <span>скоро</span><h3>Школьная<br>математика</h3>
-      <p>От понимания базы до уверенного решения сложных задач.</p>
-      <button onclick="openModal('Школьная математика')">Узнать подробнее</button>
-    </article>
-    <article class="direction-card paper">
-      <span>в будущем</span><h3>1–11<br>класс</h3>
-      <p>В будущем — полноценная система обучения по школьным предметам.</p>
-      <button onclick="openModal('Обучение 1–11 класс')">Следить за запуском</button>
-    </article>
   </div>
+  <p class="directions-next"><b>Дальше</b> — Школьная математика · 1–11 класс · другие предметы <span>скоро</span></p>
 </section>
 
 <section class="oge container reveal" id="oge">
@@ -276,10 +281,19 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
   </div>
 </section>
 
+<section class="facts reveal" id="facts">
+  <div class="facts-row container">
+    <span>ОГЭ · 8–9 класс</span>
+    <span>Онлайн</span>
+    <span>До 4 учеников</span>
+    <span>Индивидуальный маршрут</span>
+  </div>
+</section>
+
 <section class="results container reveal" id="results">
   <div class="section-head">
-    <div><h2>Прогресс, который<br>можно <em>увидеть.</em></h2></div>
-    <p>Не обещаем невозможного. Показываем реальные изменения баллов на пробных и реальном экзамене.</p>
+    <div><h2>Не обещаем.<br><em>Показываем.</em></h2></div>
+    <p>Результаты реальных учеников.</p>
   </div>
   <div class="results-grid">
     <article class="result-card">
@@ -307,21 +321,23 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
 
 <section class="teachers container reveal" id="teachers">
   <div class="section-head">
-    <div><h2>Кто ведёт<br><em>занятия.</em></h2></div>
+    <div><h2>Кто будет<br><em>рядом.</em></h2></div>
     <p>Методика важна, но не менее важно, кто рядом с ребёнком на каждом уроке.</p>
   </div>
   <div class="teacher-grid">
     <article class="teacher-card">
-      <div class="teacher-avatar">КВ</div>
-      <p class="role">Математика · ОГЭ</p>
+      <div class="teacher-avatar">КК</div>
+      <p class="role">Основатель школы · Математика · ОГЭ</p>
       <h3>Кристина Крылова</h3>
-      <p>Готовит к ОГЭ без спешки и лишней сложности: сначала закрываем пробелы в базе, затем выстраиваем системную практику и постепенно выходим на уверенное решение экзаменационных задач. Работает индивидуально и в мини-группах.</p>
-      <div class="teacher-facts">
-        <div><b>Образование</b><span>— добавить</span></div>
-        <div><b>Опыт преподавания</b><span>— добавить</span></div>
-        <div><b>Подготовлено учеников</b><span>— добавить</span></div>
-        <div><b>Результаты учеников</b><span>4 → 19 баллов · 1 → 15 баллов</span></div>
+      <p>Готовит к ОГЭ без спешки и лишней сложности: сначала закрываем пробелы в базе, затем выстраиваем системную практику и постепенно выходим на уверенное решение экзаменационных задач. Работает индивидуально и в мини-группах. Параллельно преподаёт математику в государственной школе.</p>
+      <div class="teacher-facts teacher-facts-big">
+        <div><b>— добавить</b><span>образование</span></div>
+        <div><b>8 лет</b><span>опыт (с 2018 года)</span></div>
+        <div><b>— добавить</b><span>подготовлено учеников</span></div>
+        <div><b>4 → 19</b><span>результат ученика</span></div>
       </div>
+      <p class="teacher-more" id="teacher-more">Преподаёт математику не только онлайн, но и в государственной школе — поэтому хорошо понимает, как устроена подготовка к ОГЭ «изнутри» системы, а не только со стороны репетиторства. Считает, что результат держится не на страхе ошибки, а на понятном маршруте и регулярной практике.</p>
+      <button class="teacher-cta" onclick="toggleTeacherMore(this)">Познакомиться с преподавателем <span>→</span></button>
       <span class="video-soon">Видео-знакомство — скоро</span>
     </article>
     <article class="teacher-card soon">
@@ -352,8 +368,7 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
 
 <section class="platform container reveal" id="platform">
   <div class="section-head">
-    <div><h2>Как выглядит<br><em>личный кабинет.</em></h2></div>
-    <p>Платформа в разработке — показываем макет экрана ученика и родителя. Это не рабочий вход, а визуальный предпросмотр.</p>
+    <div><h2>Всё обучение —<br><em>в одном месте.</em></h2></div>
   </div>
   <div class="platform-tabs">
     <button class="platform-tab active" onclick="showPlatformTab('student', this)" aria-pressed="true">Экран ученика</button>
@@ -362,9 +377,14 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
 
   <div class="platform-screen" id="platform-student">
     <div class="platform-card">
-      <b>Ближайшее занятие</b>
+      <b>Следующее занятие</b>
       <h4>Вторник, 16:00</h4>
       <p>Геометрия: площади фигур</p>
+    </div>
+    <div class="platform-card">
+      <b>Следующий шаг</b>
+      <h4>Что делать сегодня</h4>
+      <p>Система сама подсказывает следующее действие</p>
     </div>
     <div class="platform-card">
       <b>Домашнее задание</b>
@@ -372,10 +392,15 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
       <p>Сдать до пятницы</p>
     </div>
     <div class="platform-card">
-      <b>Прогресс по теме</b>
+      <b>Прогресс</b>
       <h4>Уравнения и неравенства</h4>
       <div class="platform-progress"><i style="width:82%"></i></div>
       <p>82% усвоено</p>
+    </div>
+    <div class="platform-card">
+      <b>Мои курсы</b>
+      <h4>ОГЭ по математике</h4>
+      <p>Текущий модуль и доступные материалы</p>
     </div>
     <div class="platform-card">
       <b>Записи занятий</b>
@@ -407,35 +432,41 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
       <h4>Статус выполнения</h4>
       <p>Сдано / в работе / просрочено — видно сразу</p>
     </div>
+    <div class="platform-card">
+      <b>Результаты</b>
+      <h4>Диагностика → пробники</h4>
+      <p>Видна динамика, а не только текущий балл</p>
+    </div>
   </div>
-  <p class="platform-note">Макет интерфейса. Реальные данные появятся с запуском платформы.</p>
+  <p class="platform-note">Личный кабинет находится в разработке.</p>
 </section>
 
-<section class="courses container reveal" id="courses">
+<section class="formats container reveal" id="courses">
   <div class="section-head">
-    <div><h2>Как<br><em>заниматься.</em></h2></div>
-    <p>Выбирайте формат, который подходит именно вам — самостоятельно или с преподавателем и чёткими сроками.</p>
+    <div><h2>Выберите<br><em>свой формат.</em></h2></div>
   </div>
-  <div class="course-grid">
-    <article class="course-card">
-      <p class="tag">самостоятельно</p>
-      <h3>Записи уроков</h3>
-      <p>Проходите тему тогда, когда удобно. Доступ открыт длительное время — можно пересматривать и возвращаться к сложным местам.</p>
-      <ul><li>Смотрите в удобном темпе</li><li>Возврат к любой теме</li><li>Хорошо подходит для повторения</li></ul>
+  <div class="formats-grid">
+    <article class="formats-card">
+      <h3>Самостоятельно</h3>
+      <p>Записи · материалы · практика</p>
     </article>
-    <article class="course-card highlight">
-      <p class="tag">с преподавателем · скоро</p>
-      <h3>Временный интенсив</h3>
-      <p>Ограниченный по времени курс с чёткой целью — например, разбор пробных вариантов перед ОГЭ. Больше включённости и поддержки.</p>
-      <ul><li>Фиксированные даты старта и финала</li><li>Обратная связь после каждого занятия</li><li>Мотивирует не откладывать</li></ul>
+    <article class="formats-card formats-card-wine">
+      <h3>С преподавателем</h3>
+      <p>Онлайн-занятия · ДЗ · обратная связь</p>
+    </article>
+    <article class="formats-card">
+      <h3>Полное сопровождение</h3>
+      <p>Онлайн-занятия · проверка · контроль прогресса</p>
     </article>
   </div>
 </section>
 
 <section class="value container reveal" id="value">
   <div class="value-block">
-    <h2>За что вы платите</h2>
-    <p>Не за количество видео. Вы платите за понятную систему, преподавателя, практику, обратную связь, контроль прогресса и движение к конкретной цели ученика.</p>
+    <h2>Вы платите не за видео.<br><em>Вы платите за понятную систему.</em></h2>
+    <div class="value-list">
+      <span>Маршрут</span><span>Преподаватель</span><span>Практика</span><span>Обратная связь</span><span>Прогресс</span>
+    </div>
   </div>
 </section>
 
@@ -493,17 +524,6 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
   <p class="pricing-note">Стоимость пробного занятия — индивидуальная, обсудим на диагностике.</p>
 </section>
 
-<section class="format container reveal" id="format">
-  <div class="format-title">
-    <h2>Учёба,<br>которая <em>не давит.</em></h2>
-  </div>
-  <div class="format-list">
-    <div><span>01</span><h3>Мини-группы <span class="badge">ключевой формат</span></h3><p>До 4 учеников в группе, чтобы преподаватель действительно видел каждого.</p></div>
-    <div><span>02</span><h3>Онлайн-занятия</h3><p>Онлайн, в реальном времени — объясняем, разбираем, задаём вопросы и сразу исправляем непонимание.</p></div>
-    <div><span>03</span><h3>Обратная связь</h3><p>Родитель получает понятную картину: что усвоено, что в работе, что предстоит.</p></div>
-  </div>
-</section>
-
 <section class="faq container reveal" id="faq">
   <div class="section-head">
     <div><h2>Остались<br><em>вопросы?</em></h2></div>
@@ -522,9 +542,12 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
 </section>
 
 <section class="trial container reveal">
-  <div><h2>Не знаете,<br><em>с чего начать?</em></h2></div>
-  <p>Расскажите, в каком классе ребёнок, какая сейчас ситуация и чего вы хотите достичь. Мы поможем определить следующий шаг.<br><small>Без обязательств.</small></p>
-  <button class="button cta-diagnostic" onclick="openModal('Запись на диагностику')">Записаться на диагностику</button>
+  <div><h2>Начнём с того,<br><em>что уже умеет ребёнок.</em></h2></div>
+  <p>Диагностика покажет уровень, пробелы и следующий шаг.</p>
+  <div class="trial-cta-wrap">
+    <button class="button cta-diagnostic" onclick="openModal('Запись на диагностику')">Записаться на диагностику →</button>
+    <p class="trial-note">Без обязательств.</p>
+  </div>
 </section>
 
 <section class="documents container reveal" id="documents">
@@ -567,6 +590,11 @@ button:not(.switch):not(.attend-btns button):hover,[class*="btn" i]:not(.switch)
 </div>
 
 <script>
+function toggleTeacherMore(btn){
+  const more = document.getElementById('teacher-more');
+  const expanded = more.classList.toggle('show');
+  btn.innerHTML = expanded ? 'Свернуть <span>↑</span>' : 'Познакомиться с преподавателем <span>→</span>';
+}
 function openModal(title){
   const modal=document.getElementById('modal');
   document.getElementById('modal-title').textContent=title;
